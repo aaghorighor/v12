@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">j52</string>
+    <string name="title_error_dialog">Error</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="close">Close</string>
+    <string name="try_again">Try Again</string>
+    <string name="no_internet">No Internet</string>
+    <string name="DeleteConfirmation">Delete Confirmation</string>
+    <string name="DeleteMessages">Web Logger was deleted successfully</string>
+    <string name="Ok">Ok</string>
+    <string name="ErrorLogNotDeleted">Error Log could not be deleted</string>
+    <string name="DeleteYes">Are you sure you want to clear this logs?</string>
+    <string name="ErrorMessages">Error Messages</string>
+    <string name="PleaseTryAgain">Please try again</string>
+</resources>

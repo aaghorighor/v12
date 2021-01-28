@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/grp_1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:contentDescription="Home"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_devotion"
+            android:icon="@drawable/ic_note"
+            android:contentDescription="Devotions"
+            android:title="Devotions" />
+
+        <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/ic_event"
+            android:contentDescription="Event"
+            android:title="Events" />
+
+        <item
+            android:id="@+id/nav_sermon"
+            android:icon="@drawable/ic_video"
+            android:contentDescription="Sermons"
+            android:title="Sermons" />
+
+        <item
+            android:id="@+id/nav_giving"
+            android:icon="@drawable/ic_giving"
+            android:contentDescription="Giving"
+            android:title="Giving" />
+
+        <item
+            android:id="@+id/nav_campaign"
+            android:icon="@drawable/ic_campaign"
+            android:contentDescription="Campaigns"
+            android:title="Campaigns" />
+        <item
+            android:id="@+id/nav_prayer"
+            android:icon="@drawable/ic_lightbulb"
+            android:contentDescription="Prayers"
+            android:title="Prayers" />
+
+        <item
+            android:id="@+id/nav_photo"
+            android:icon="@drawable/ic_photo_library"
+            android:contentDescription="Photos"
+            android:title="Photos" />
+
+        <item
+            android:id="@+id/service_time"
+            android:icon="@drawable/ic_time"
+            android:contentDescription="Service Times"
+            android:title="Service Times" />
+
+        <item
+            android:id="@+id/nav_testimony"
+            android:icon="@drawable/ic_person_grey"
+            android:contentDescription="Testimonies"
+            android:title="Testimonies" />
+
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_peoples"
+            android:contentDescription="Contacts"
+            android:title="Contacts" />
+
+        <group
+            android:id="@+id/grp_2"
+            android:checkableBehavior="none">
+
+            <item
+                android:id="@+id/nav_transfer"
+                android:icon="@drawable/ic_transfer"
+                android:title="Transfer to new church" />
+
+            <item
+                android:id="@+id/nav_restore"
+                android:icon="@drawable/ic_restore"
+                android:title="Restore to previous church" />
+            <item
+                android:id="@+id/nav_register"
+                android:icon="@drawable/ic_create"
+                android:title="New Member" />
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings"
+                android:title="Settings" />
+            <item
+                android:id="@+id/nav_about_us"
+                android:icon="@drawable/ic_info"
+                android:title="About us" />
+
+        </group>
+
+    </group>
+
+</menu>
