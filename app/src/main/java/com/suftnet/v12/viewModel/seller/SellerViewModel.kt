@@ -1,6 +1,7 @@
 package com.suftnet.v12.viewModel.account
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import com.suftnet.v12.api.Config
 import com.suftnet.v12.api.Services
@@ -25,20 +26,22 @@ class SellerViewModel(application: Application) : AndroidViewModel(application) 
         sellerRepository =  SellerRepository(networkService)
     }
 
-    fun create(createUser: CreateUser) :LiveData<User> {
-        val liveData = MutableLiveData<User>()
+    fun create(createUser: CreateUser) = liveData {
 
-        viewModelScope.launch {
-            loading.value = true
-            var response = sellerRepository.create(createUser)
-            if (response.isSuccessful) {
-                liveData.value =response.body()
-            } else {
-                error.value = NetWork.errorHandler(response)
-            }
-            loading.value = false
+        loading.value = true
+
+        var response = sellerRepository.create(createUser)
+        if (response.isSuccessful) {
+
+            Log.d("_____","" + response.body()!!.userName)
+            Log.d("_____","" + response.body()!!.token)
+            Log.d("_____","" + response.body()!!.id)
+
+            emit(response.body())
+        } else {
+            error.value = NetWork.errorHandler(response)
         }
 
-        return liveData
+        loading.value = false
     }
 }

@@ -12,10 +12,11 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_j52"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.Material">
-        <activity android:name="com.suftnet.v12.ui.WebLoggerActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name="com.suftnet.v12.ui.MobileLoggerActivity" android:screenOrientation="portrait" />
-        <activity android:name="com.suftnet.v12.ui.MainActivity">
+        android:theme="@style/ExAppTheme">
+        <activity android:name=".ui.SignUpActivity"></activity>
+        <activity android:name=".ui.LoginActivity"></activity>
+        <activity android:name=".ui.BaseAppCompatActivity" />
+        <activity android:name=".ui.WalkThroughActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.suftnet.v12.ui.WalkThroughActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.52" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:overScrollMode="never" />
+    <com.suftnet.v12.util.DotsIndicator
+        android:id="@+id/dots"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        android:layout_margin="@dimen/ex_spacing_standard"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        app:dot_height="@dimen/ex_spacing_control"
+        app:dot_width="@dimen/ex_spacing_control" />
+    <RelativeLayout
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dots"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/ex_textColorPrimary"
+            android:textAppearance="@string/font_bold"
+            android:textSize="@dimen/ex_font_size_large"
+            android:textStyle="bold"
+            tools:text="All important health tips" />
+        <TextView
+            android:id="@+id/subHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/heading"
+            android:layout_marginTop="@dimen/ex_spacing_middle"
+            android:layout_marginStart="@dimen/ex_spacing_large"
+            android:layout_marginEnd="@dimen/ex_spacing_large"
+            android:gravity="center_horizontal"
+            android:lines="3"
+            android:lineSpacingExtra="@dimen/ex_spacing_control_half"
+            android:textColor="@color/ex_textColorSecondary"
+            android:textSize="@dimen/ex_font_size_normal"
+            tools:text="@string/ex_lbl_simple_text" />
+        <TextView
+            android:id="@+id/get_started"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/ex_spacing_xlarge"
+            android:layout_marginEnd="@dimen/ex_spacing_xlarge"
+            android:layout_below="@id/subHeading"
+            android:layout_marginTop="@dimen/ex_spacing_large"
+            style="@style/ThemeExMaterialButton"
+            android:text="@string/lbl_get_started"
+            />
+    </RelativeLayout>
+    <include
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        layout="@layout/toolbar"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

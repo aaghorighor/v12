@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ex_white"
+    android:orientation="vertical" >
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerCrop"
+                android:src="@drawable/t12_ic_home_logo" />
+
+            <EditText
+                android:id="@+id/email"
+                style="@style/ExEditTextStyle"
+                android:layout_marginTop="@dimen/ex_spacing_large"
+                android:maxLength="50"
+                android:hint="@string/ex_hint_Email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/password"
+                style="@style/ExEditTextStyle"
+                android:layout_marginTop="@dimen/ex_spacing_standard"
+                android:maxLength="20"
+                android:hint="@string/ex_hint_password"
+                android:inputType="textPassword" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="@dimen/ex_spacing_standard_new">
+
+                <TextView
+                    android:id="@+id/signIn"
+                    style="@style/ThemeExMaterialButton"
+                    android:layout_toStartOf="@id/ivFaceBook"
+                    android:clickable="true"
+                    android:text="@string/ex_lbl_login" />
+
+                <ImageView
+                    android:id="@+id/ivFaceBook"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginEnd="@dimen/ex_spacing_standard"
+                    android:layout_toStartOf="@id/ivTwitter"
+                    android:background="@drawable/bg_back_dot"
+                    android:backgroundTint="@color/ex_dark_blue_color"
+                    android:padding="@dimen/ex_spacing_standard"
+                    android:src="@drawable/ex_ic_facebook_fill"
+                    android:tint="@color/ex_white" />
+
+                <ImageView
+                    android:id="@+id/ivTwitter"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bg_back_dot"
+                    android:backgroundTint="@color/ex_blue_color"
+                    android:padding="@dimen/ex_spacing_standard"
+                    android:src="@drawable/ex_ic_twitter_fill"
+                    android:tint="@color/ex_white" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ex_spacing_standard_new"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="@dimen/ex_spacing_standard_new"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ex_lbl_need_an_account"
+                    android:textColor="@color/ex_textColorSecondary"
+                    android:textSize="@dimen/ex_font_size_small" />
+
+                <TextView
+                    android:id="@+id/signUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/ex_spacing_standard"
+                    android:text="@string/ex_lbl_link_sign_up"
+                    android:textColor="@color/ex_textColorPrimary"
+                    android:textColorLink="@color/ex_textColorPrimary"
+                    android:textSize="@dimen/ex_font_size_medium" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ex_spacing_standard_new"
+                android:layout_marginTop="@dimen/ex_spacing_middle"
+                android:layout_marginEnd="@dimen/ex_spacing_standard_new"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ex_lbl_forgot_your_password"
+                    android:textColor="@color/ex_textColorSecondary"
+                    android:textSize="@dimen/ex_font_size_small" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/ex_spacing_standard"
+                    android:text="@string/ex_lbl_retrieve"
+                    android:textColor="@color/ex_textColorPrimary"
+                    android:textSize="@dimen/ex_font_size_medium"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

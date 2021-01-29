@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ex_white"
+    android:orientation="vertical" >
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerCrop"
+                android:src="@drawable/t12_ic_home_logo" />
+
+            <EditText
+                android:id="@+id/firstName"
+                style="@style/ExEditTextStyle"
+                android:layout_marginTop="@dimen/ex_spacing_large"
+                android:maxLength="50"
+                android:hint="FirstName"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/lastName"
+                style="@style/ExEditTextStyle"
+                android:layout_marginTop="@dimen/ex_spacing_standard"
+                android:maxLength="50"
+                android:hint="LastName"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/mobile"
+                style="@style/ExEditTextStyle"
+                android:layout_marginTop="@dimen/ex_spacing_standard"
+                android:maxLength="50"
+                android:hint="Mobile"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/email"
+                style="@style/ExEditTextStyle"
+                android:layout_marginTop="@dimen/ex_spacing_standard"
+                android:maxLength="50"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/password"
+                style="@style/ExEditTextStyle"
+                android:layout_marginTop="@dimen/ex_spacing_standard"
+                android:maxLength="20"
+                android:hint="@string/ex_hint_password"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/signUp"
+                style="@style/ThemeExMaterialButton"
+                android:layout_marginTop="@dimen/ex_spacing_large"
+                android:clickable="true"
+                android:text="@string/ex_lbl_sign_up" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/ex_spacing_standard_new"
+                android:layout_marginTop="@dimen/ex_spacing_large"
+                android:layout_marginEnd="@dimen/ex_spacing_standard_new"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ex_lbl_already_member"
+                    android:textColor="@color/ex_textColorSecondary"
+                    android:textSize="@dimen/ex_font_size_small" />
+
+                <TextView
+                    android:id="@+id/signIn"
+                    android:textColorLink="@color/ex_textColorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_marginStart="@dimen/ex_spacing_standard"
+                    android:text="@string/ex_lbl_link_login"
+                    android:textColor="@color/ex_textColorPrimary"
+                    android:textSize="@dimen/ex_font_size_medium" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</LinearLayout>

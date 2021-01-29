@@ -363,4 +363,22 @@
     <color name="amber">#FFC107</color>
     <color name="text">#263238</color>
 
+    <color name="ex_colorPrimary">#0A9DA3</color>
+    <color name="ex_colorPrimaryDark">#0A9DA3</color>
+    <color name="ex_colorAccent">#0A9DA3</color>
+    <color name="ex_colorPrimary_light">#3E3A5BFB</color>
+    <color name="ex_textColorPrimary">#B2020005</color>
+    <color name="ex_textColorSecondary">#888888</color>
+    <color name="ex_textColorSecondary_blue">#86859B</color>
+    <color name="ex_textColorThird">#BABFB6</color>
+    <color name="ex_Grey">#E6E7E9</color>
+    <color name="ex_white">#FFFFFF</color>
+    <color name="ex_layout_background_white">#F6F7FA</color>
+    <color name="ex_view_color">#B4BBC2</color>
+    <color name="ex_blue_color">#15A9EB</color>
+    <color name="ex_dark_blue_color">#3D5895</color>
+    <color name="ex_edit_text_color">#EFF3F6</color>
+    <color name="ex_menu_background">#8BFFFFFF</color>
+    <color name="ex_app_background">#f8f8f8</color>
+
 </resources>
