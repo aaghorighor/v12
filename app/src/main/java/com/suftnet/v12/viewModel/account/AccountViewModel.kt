@@ -3,7 +3,8 @@ package com.suftnet.v12.viewModel.account
 import android.app.Application
 import androidx.lifecycle.*
 import com.suftnet.v12.api.Config
-import com.suftnet.v12.api.Services
+import com.suftnet.v12.api.Http
+
 import com.suftnet.v12.api.model.request.Login
 import com.suftnet.v12.api.model.response.User
 import com.suftnet.v12.model.Error
@@ -16,7 +17,7 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
         const val TAG = "AccountViewModel"
     }
 
-    private val networkService = Services.account(Config.Url.HOST)
+    private val networkService = Http.account(Config.Url.HOST)
     private var accountRepository : AccountRepository
     val loading: MutableLiveData<Boolean> = MutableLiveData()
     val error: MutableLiveData<Error> = MutableLiveData()

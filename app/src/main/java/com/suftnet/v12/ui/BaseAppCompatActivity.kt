@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -62,6 +63,19 @@ open class BaseAppCompatActivity : AppCompatActivity() {
             else -> {
                 window.statusBarColor =  ContextCompat.getColor(this, R.color.colorPrimary)
             }
+        }
+    }
+
+    fun fullScreen()
+    {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
         }
     }
 

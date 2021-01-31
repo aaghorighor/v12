@@ -7,6 +7,7 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.suftnet.v12.R
+import com.suftnet.v12.Store.Store
 import com.suftnet.v12.util.isValidEmail
 import com.suftnet.v12.util.resetErrorOnChange
 import com.suftnet.v12.util.trimmedText
@@ -15,17 +16,19 @@ import kotlinx.android.synthetic.main.signin_activity.email
 import kotlinx.android.synthetic.main.signin_activity.password
 import kotlinx.android.synthetic.main.signin_activity.signIn
 import kotlinx.android.synthetic.main.signin_activity.signUp
+import org.jetbrains.anko.alert
 
 class LoginActivity : BaseAppCompatActivity() {
 
     private lateinit var viewModel: AccountViewModel
-
+    private lateinit var store: Store
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signin_activity)
         viewModel = ViewModelProvider(this).get(AccountViewModel::class.java)
         listener()
+        store = Store(this)
     }
 
     private fun listener()
@@ -41,13 +44,34 @@ class LoginActivity : BaseAppCompatActivity() {
             }
         }
 
+        observerError()
         onErrorChange()
+    }
+
+    private fun observerError()
+    {
+        viewModel.error.observe(
+            this,
+            Observer {
+
+                alert {
+                    title = "Error"
+                    message = it.messages
+                    isCancelable = false
+                    positiveButton(getString(R.string.Ok)) { dialog ->
+                        dialog.dismiss()
+                    }
+                }.show()
+            }
+        )
     }
 
     private fun saveChanges()
     {
         viewModel.login(email.trimmedText,password.trimmedText).observe(this, Observer {
-
+            store.user = it
+            startActivity(Intent(this, SellerDashboardActivity::class.java))
+            finish()
         })
     }
     private fun isValid(): Boolean {

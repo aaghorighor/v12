@@ -73,22 +73,13 @@ class SignUpActivity : BaseAppCompatActivity() {
     private fun saveChanges()
     {
         var createUser = CreateUser(email.trimmedText,
-            firstName.trimmedText,
-            lastName.trimmedText, mobile.trimmedText,
+            firstName.trimmedText, lastName.trimmedText, mobile.trimmedText,
             password.trimmedText,true,"", "")
 
         viewModel.create(createUser).observe(this, Observer {
-
             store.user = it
-
-            alert {
-                title = "Success"
-                message = ""+    store.user!!.token
-                isCancelable = false
-                positiveButton(getString(R.string.Ok)) { dialog ->
-                    dialog.dismiss()
-                }
-            }.show()
+            startActivity(Intent(this, SellerDashboardActivity::class.java))
+            finish()
         })
     }
 

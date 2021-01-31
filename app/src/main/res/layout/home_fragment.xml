@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ex_app_background"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/ex_bg_bottom_shadow">
+
+        <ImageView
+            android:id="@+id/user_image"
+            android:layout_marginStart="@dimen/ex_spacing_standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/ex_spacing_standard"
+            android:src="@drawable/ic_person"
+            android:tint="@color/grey_80" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/user_image"
+            android:text=""
+            android:padding="@dimen/ex_spacing_standard"
+            android:textAppearance="@style/FontMedium"
+            android:textColor="@color/ex_colorPrimary"
+            android:textSize="@dimen/ex_font_size_xlarge" />
+
+        <ImageView
+            android:id="@+id/exit"
+            android:layout_marginStart="@dimen/ex_spacing_standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/ex_spacing_standard"
+            android:src="@drawable/ic_exit"
+            android:tint="@color/ex_colorPrimary" />
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ex_spacing_standard"
+
+                android:layout_marginEnd="@dimen/ex_spacing_standard"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/llConsult"
+                    style="@style/ExHomeLayout">
+
+                    <ImageView
+                        style="@style/ExHomeImg"
+                        android:src="@drawable/icons8_purchase_order_400" />
+
+                    <TextView
+                        style="@style/ExHomeText"
+                        android:lines="1"
+                        android:text="Orders" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llMyQuestion"
+                    style="@style/ExHomeLayout"
+                    android:layout_marginStart="4dp">
+
+                    <ImageView
+                        style="@style/ExHomeImg"
+                        android:src="@drawable/icons8_flax_seeds" />
+
+                    <TextView
+                        style="@style/ExHomeText"
+                        android:lines="1"
+                        android:text="Available" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ex_spacing_standard"
+                android:layout_marginTop="@dimen/ex_spacing_control_half"
+                android:layout_marginEnd="@dimen/ex_spacing_standard"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/llCareTeam"
+                    style="@style/ExHomeLayout"
+                    android:layout_marginStart="4dp">
+
+                    <ImageView
+                        style="@style/ExHomeImg"
+                        android:src="@drawable/icons8_delivery_80" />
+
+                    <TextView
+                        style="@style/ExHomeText"
+                        android:lines="1"
+                        android:text="Deliveries" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/ExHomeLayout"
+                    android:id="@+id/llHealthGuide">
+
+                    <ImageView
+                        style="@style/ExHomeImg"
+                        android:src="@drawable/icons8_realtime_512" />
+
+                    <TextView
+                        style="@style/ExHomeText"
+                        android:lines="1"
+                        android:text="Completed" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

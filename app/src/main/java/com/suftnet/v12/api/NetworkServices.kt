@@ -1,7 +1,6 @@
 package com.suftnet.v12.api
 
 import com.suftnet.v12.api.model.request.*
-import com.suftnet.v12.api.model.response.FetchProduce
 import com.suftnet.v12.api.model.response.User
 import retrofit2.http.GET
 import retrofit2.Response
@@ -21,7 +20,7 @@ interface Produce {
     @POST(Config.Url.Produce.delete)
     suspend fun delete(@Body body: DeleteProduce) : Response<Boolean>
     @GET(Config.Url.Produce.fetch)
-    suspend fun fetch() : Response<List<FetchProduce>>
+    suspend fun fetch() : Response<List<com.suftnet.v12.api.model.response.Produce>>
 }
 
 interface Seller {

@@ -1,6 +1,6 @@
 package com.suftnet.v12.api
 
-object Services {
+object Http {
 
     fun account(baseUrl: String) : Account {
         return NetworkServiceProvider.getRetrofit(baseUrl).create(Account::class.java)

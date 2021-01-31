@@ -4,7 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import com.suftnet.v12.api.Config
-import com.suftnet.v12.api.Services
+import com.suftnet.v12.api.Http
 import com.suftnet.v12.api.model.request.CreateUser
 import com.suftnet.v12.api.model.response.User
 import com.suftnet.v12.model.Error
@@ -17,7 +17,7 @@ class SellerViewModel(application: Application) : AndroidViewModel(application) 
         const val TAG = "SellerViewModel"
     }
 
-    private val networkService = Services.seller(Config.Url.HOST)
+    private val networkService = Http.seller(Config.Url.HOST)
     private var sellerRepository : SellerRepository
     val loading: MutableLiveData<Boolean> = MutableLiveData()
     val error: MutableLiveData<Error> = MutableLiveData()

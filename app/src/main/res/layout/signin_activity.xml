@@ -22,7 +22,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="centerCrop"
-                android:src="@drawable/t12_ic_home_logo" />
+                android:src="@drawable/ex_ic_home_logo" />
 
             <EditText
                 android:id="@+id/email"

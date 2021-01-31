@@ -13,10 +13,13 @@
         android:roundIcon="@mipmap/ic_j52"
         android:supportsRtl="true"
         android:theme="@style/ExAppTheme">
-        <activity android:name=".ui.SignUpActivity"></activity>
-        <activity android:name=".ui.LoginActivity"></activity>
+        <activity android:name=".ui.ProduceActivity"></activity>
+        <activity android:name=".ui.SellerDashboardActivity" />
+        <activity android:name=".ui.SignUpActivity" />
+        <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.BaseAppCompatActivity" />
-        <activity android:name=".ui.WalkThroughActivity">
+        <activity android:name=".ui.WalkThroughActivity" />
+        <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

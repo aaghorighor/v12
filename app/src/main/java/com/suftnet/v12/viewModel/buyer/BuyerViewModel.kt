@@ -3,7 +3,7 @@ package com.suftnet.v12.viewModel.account
 import android.app.Application
 import androidx.lifecycle.*
 import com.suftnet.v12.api.Config
-import com.suftnet.v12.api.Services
+import com.suftnet.v12.api.Http
 import com.suftnet.v12.api.model.request.CreateUser
 import com.suftnet.v12.api.model.response.User
 import com.suftnet.v12.model.Error
@@ -16,7 +16,7 @@ class BuyerViewModel(application: Application) : AndroidViewModel(application) {
         const val TAG = "BuyerViewModel"
     }
 
-    private val networkService = Services.buyer(Config.Url.HOST)
+    private val networkService = Http.buyer(Config.Url.HOST)
     private var buyerRepository : BuyerRepository
     val loading: MutableLiveData<Boolean> = MutableLiveData()
     val error: MutableLiveData<Error> = MutableLiveData()

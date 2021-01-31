@@ -28,11 +28,17 @@
     <string name="ex_lbl_sign_up">Sign Up</string>
     <string name="ex_lbl_already_member">Already have an account?</string>
     <string name="ex_lbl_login">Login</string>
-
+    <string name="ex_lbl_setting">Setting</string>
+    <string name="ex_lbl_user">User</string>
+    <string name="ex_lbl_bookmark">Bookmark</string>
+    <string name="ex_lbl_search">Search</string>
+    <string name="ex_lbl_bottom_navigation">Bottom Navigation</string>
     <string name="ex_lbl_simple_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
     <string name="ex_lbl_sample_long">
 Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     </string>
     <string name="lbl_WalkThrough">Walk through</string>
     <string name="lbl_get_started">Get Started</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
