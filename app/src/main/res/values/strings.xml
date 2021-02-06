@@ -41,4 +41,16 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem 
     <string name="lbl_get_started">Get Started</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="produce_created_successfully">Produce was created successfully</string>
+    <string name="created_another_produce">Do you want to create another one?</string>
+    <string name="produce_edited">Produce was edited successfully</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="delete_produce">Are sure you want to delete this Produce?</string>
+    <string name="delete_confirmation">Delete Confirmation</string>
+    <string name="order_confirmation">Order Confirmation</string>
+    <string name="order_success">Thanks your order was placed Successfully</string>
+
+    <string-array name="dp_unit">
+        <item>Kilogram</item>
+    </string-array>
 </resources>

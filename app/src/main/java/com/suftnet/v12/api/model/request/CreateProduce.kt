@@ -6,12 +6,14 @@ data class CreateProduce (
         @SerializedName("name") val name : String,
         @SerializedName("description") val description : String,
         @SerializedName("quantity") val quantity : Int,
-        @SerializedName("price") val price : Int,
+        @SerializedName("price") val price : Double,
         @SerializedName("active") val active : Boolean,
         @SerializedName("unitId") val unitId : String,
         @SerializedName("availableDate") val availableDate : String,
-        @SerializedName("userId") val userId : String,
-        @SerializedName("email") val email : String
+        @SerializedName("city") val city : String,
+        @SerializedName("state") val state : String,
+        @SerializedName("country") val country : String,
+        @SerializedName("address") val address : String
 )
 
 data class EditProduce (
@@ -19,12 +21,14 @@ data class EditProduce (
         @SerializedName("name") val name : String,
         @SerializedName("description") val description : String,
         @SerializedName("quantity") val quantity : Int,
-        @SerializedName("price") val price : Int,
+        @SerializedName("price") val price : Double,
         @SerializedName("active") val active : Boolean,
         @SerializedName("unitId") val unitId : String,
         @SerializedName("availableDate") val availableDate : String,
-        @SerializedName("userId") val userId : String,
-        @SerializedName("email") val email : String
+        @SerializedName("city") val city : String,
+        @SerializedName("state") val state : String,
+        @SerializedName("country") val country : String,
+        @SerializedName("address") val address : String
 )
 
 data class DeleteProduce (

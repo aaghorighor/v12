@@ -3,6 +3,7 @@ package com.suftnet.v12.ui
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +17,7 @@ import kotlinx.android.synthetic.main.signin_activity.email
 import kotlinx.android.synthetic.main.signin_activity.password
 import kotlinx.android.synthetic.main.signin_activity.signIn
 import kotlinx.android.synthetic.main.signin_activity.signUp
+import kotlinx.android.synthetic.main.signup_activity.*
 import org.jetbrains.anko.alert
 
 class LoginActivity : BaseAppCompatActivity() {
@@ -50,6 +52,10 @@ class LoginActivity : BaseAppCompatActivity() {
 
     private fun observerError()
     {
+        viewModel.loading.observe(this, Observer {
+            progressBar.visibility = if(it) View.VISIBLE else View.GONE
+        })
+
         viewModel.error.observe(
             this,
             Observer {

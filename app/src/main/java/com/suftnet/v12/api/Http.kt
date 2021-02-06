@@ -1,5 +1,7 @@
 package com.suftnet.v12.api
 
+import com.suftnet.v12.api.model.request.CreateOrder
+
 object Http {
 
     fun account(baseUrl: String) : Account {
@@ -20,5 +22,13 @@ object Http {
 
     fun logistic(baseUrl: String) : Driver {
         return NetworkServiceProvider.getRetrofit(baseUrl).create(Driver::class.java)
+    }
+
+    fun market(baseUrl: String) : Market {
+        return NetworkServiceProvider.getRetrofit(baseUrl).create(Market::class.java)
+    }
+
+    fun order(baseUrl: String) : Order {
+        return NetworkServiceProvider.getRetrofit(baseUrl).create(Order::class.java)
     }
 }

@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/ex_bg_bottom_shadow">
+
+        <ImageView
+            android:id="@+id/back__action"
+            android:layout_marginStart="@dimen/ex_spacing_standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/ex_spacing_standard"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/ex_colorPrimary" />
+
+        <TextView
+            android:id="@+id/main__title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/back__action"
+            android:text=""
+            android:padding="@dimen/ex_spacing_standard"
+            android:textAppearance="@style/FontBold"
+            android:textColor="@color/grey_60"
+            android:textSize="@dimen/ex_font_size_normal" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical"
+            android:padding="@dimen/ex_spacing_standard">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_large"
+                android:layout_marginRight="@dimen/spacing_large"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Item"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/grey_60"
+                    app:fontFamily="sans-serif-medium" />
+
+                <ImageView
+                    android:layout_width="@dimen/spacing_mlarge"
+                    android:layout_height="@dimen/spacing_mlarge"
+                    android:tint="@color/teal_400"
+                    app:srcCompat="@drawable/ic_shopping_basket" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_large">
+
+                    <EditText
+                        android:id="@+id/name"
+                        style="@style/EditText.Flat.Grey.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_xlarge"
+                        android:maxLength="150"
+                        android:background="@drawable/edit_text_round_bg_outline"
+                        android:imeOptions="actionNext"
+                        android:hint="Name"
+                        android:minHeight="@dimen/spacing_xmlarge" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_middle"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/quantity"
+                            style="@style/EditText.Flat.Grey.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:layout_weight="1"
+                            android:maxLength="50"
+                            android:background="@drawable/edit_text_round_bg_outline"
+                            android:imeOptions="actionNext"
+                            android:hint="Quantity"
+                            android:minHeight="@dimen/spacing_xmlarge" />
+
+                        <View
+                            android:layout_width="@dimen/spacing_middle"
+                            android:layout_height="0dp" />
+
+                        <EditText
+                            android:id="@+id/price"
+                            style="@style/EditText.Flat.Grey.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:maxLength="50"
+                            android:layout_weight="1"
+                            android:background="@drawable/edit_text_round_bg_outline"
+                            android:imeOptions="actionNext"
+                            android:hint=" Price"
+                            android:minHeight="@dimen/spacing_xmlarge" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_middle"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/unit"
+                            style="@style/EditText.Flat.Grey.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:layout_weight="1"
+                            android:maxLength="50"
+                            android:background="@drawable/edit_text_round_bg_outline"
+                            android:imeOptions="actionNext"
+                            android:hint="Unit"
+                            android:minHeight="@dimen/spacing_xmlarge" />
+
+                        <View
+                            android:layout_width="@dimen/spacing_middle"
+                            android:layout_height="0dp" />
+
+                        <EditText
+                            android:id="@+id/availableDate"
+                            style="@style/EditText.Flat.Grey.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:clickable="true"
+                            android:maxLength="50"
+                            android:layout_weight="1"
+                            android:background="@drawable/edit_text_round_bg_outline"
+                            android:imeOptions="actionNext"
+                            android:hint=" Available Date"
+                            android:minHeight="@dimen/spacing_xmlarge" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/description"
+                        style="@style/EditText.Flat.Grey.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_middle"
+                        android:background="@drawable/edit_text_round_bg_outline"
+                        android:hint="Description"
+                        android:gravity="top"
+                        android:inputType="textMultiLine"
+                        android:lines="4"
+                        android:maxLength="250"
+                        android:textColor="@color/ex_textColorPrimary" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spacing_large"
+                    android:layout_marginRight="@dimen/spacing_large"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Collection Address"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                        android:textColor="@color/grey_60"
+                        app:fontFamily="sans-serif-medium" />
+
+                    <ImageView
+                        android:layout_width="@dimen/spacing_mlarge"
+                        android:layout_height="@dimen/spacing_mlarge"
+                        android:tint="@color/teal_400"
+                        app:srcCompat="@drawable/ic_location" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_large">
+
+                    <EditText
+                        android:id="@+id/address"
+                        style="@style/EditText.Flat.Grey.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_xlarge"
+                        android:maxLength="150"
+                        android:background="@drawable/edit_text_round_bg_outline"
+                        android:imeOptions="actionNext"
+                        android:hint="Address"
+                        android:minHeight="@dimen/spacing_xmlarge" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_middle"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/city"
+                            style="@style/EditText.Flat.Grey.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:layout_weight="1"
+                            android:maxLength="50"
+                            android:background="@drawable/edit_text_round_bg_outline"
+                            android:imeOptions="actionNext"
+                            android:hint="City"
+                            android:minHeight="@dimen/spacing_xmlarge" />
+
+                        <View
+                            android:layout_width="@dimen/spacing_middle"
+                            android:layout_height="0dp" />
+
+                        <EditText
+                            android:id="@+id/state"
+                            style="@style/EditText.Flat.Grey.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:maxLength="50"
+                            android:layout_weight="1"
+                            android:background="@drawable/edit_text_round_bg_outline"
+                            android:imeOptions="actionNext"
+                            android:hint="State"
+                            android:minHeight="@dimen/spacing_xmlarge" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/country"
+                        style="@style/EditText.Flat.Grey.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_xlarge"
+                        android:layout_marginTop="@dimen/spacing_middle"
+                        android:maxLength="50"
+                        android:background="@drawable/edit_text_round_bg_outline"
+                        android:imeOptions="actionDone"
+                        android:hint="Country"
+                        android:minHeight="@dimen/spacing_xmlarge" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/ExEditTextLabel"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:textStyle="normal"
+                android:text="Publish" />
+
+            <CheckBox
+                android:id="@+id/publish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium_10"
+                android:layout_marginEnd="@dimen/ex_spacing_xxxlarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_large"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cancel"
+                    style="@style/ExButtonStyleStroked"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/spacing_xsmall"
+                    android:layout_marginEnd="@dimen/ex_spacing_standard"
+                    android:layout_weight="1"
+                    android:text="Cancel"
+                    android:textColor="@color/ex_textColorSecondary" />
+
+                <TextView
+                    android:id="@+id/save_changes"
+                    style="@style/ExButtonStyleStroked"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/ex_spacing_control"
+                    android:layout_marginTop="@dimen/spacing_xsmall"
+                    android:layout_weight="1"
+                    android:text="Save Changes" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress_Bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</LinearLayout>

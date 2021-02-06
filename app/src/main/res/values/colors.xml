@@ -381,4 +381,7 @@
     <color name="ex_menu_background">#8BFFFFFF</color>
     <color name="ex_app_background">#f8f8f8</color>
 
+    <color name="dp_light_blue">#1DA1F3</color>
+    <color name="ex_black">#000000</color>
+
 </resources>

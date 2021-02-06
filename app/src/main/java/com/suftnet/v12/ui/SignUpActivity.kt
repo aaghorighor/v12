@@ -8,13 +8,15 @@ import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.chip.Chip
 import com.suftnet.v12.R
 import com.suftnet.v12.Store.Store
 import com.suftnet.v12.api.model.request.CreateUser
+import com.suftnet.v12.model.Error
 import com.suftnet.v12.util.isValidEmail
 import com.suftnet.v12.util.resetErrorOnChange
 import com.suftnet.v12.util.trimmedText
-import com.suftnet.v12.viewModel.account.SellerViewModel
+import com.suftnet.v12.viewModel.account.AccountViewModel
 import kotlinx.android.synthetic.main.signin_activity.signIn
 import kotlinx.android.synthetic.main.signin_activity.signUp
 import kotlinx.android.synthetic.main.signup_activity.*
@@ -22,20 +24,35 @@ import org.jetbrains.anko.alert
 
 class SignUpActivity : BaseAppCompatActivity() {
 
-    private lateinit var viewModel: SellerViewModel
+    private lateinit var viewModel: AccountViewModel
     private lateinit var store: Store
+    private var userType :String =""
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_activity)
-        viewModel = ViewModelProvider(this).get(SellerViewModel::class.java)
-        listener()
+        init()
+    }
+
+    private fun init()
+    {
+        viewModel = ViewModelProvider(this).get(AccountViewModel::class.java)
         store = Store(this)
+        listener()
     }
 
     private fun listener()
     {
+        user_group.setOnCheckedChangeListener { group, checkedId ->
+                userType = ""
+            if(checkedId != -1)
+            {
+                val chip: Chip = group.findViewById(checkedId)
+                userType = "" + chip.text
+            }
+        }
+
         signUp.setOnClickListener {
 
             if(isValid())
@@ -55,15 +72,7 @@ class SignUpActivity : BaseAppCompatActivity() {
         viewModel.error.observe(
             this,
             Observer {
-
-                alert {
-                    title = "Error"
-                    message = it.messages
-                    isCancelable = false
-                    positiveButton(getString(R.string.Ok)) { dialog ->
-                        dialog.dismiss()
-                    }
-                }.show()
+                onError(it)
             }
         )
 
@@ -73,14 +82,46 @@ class SignUpActivity : BaseAppCompatActivity() {
     private fun saveChanges()
     {
         var createUser = CreateUser(email.trimmedText,
-            firstName.trimmedText, lastName.trimmedText, mobile.trimmedText,
+                firstName.trimmedText, lastName.trimmedText, mobile.trimmedText,
             password.trimmedText,true,"", "")
 
-        viewModel.create(createUser).observe(this, Observer {
+        when(userType)
+        {
+            "Farmer" -> {
+                viewModel.createSeller(createUser)
+            }
+            "Buyer" -> {
+                viewModel.createBuyer(createUser)
+            }
+            "Logistic" ->{
+                viewModel.createDriver(createUser)
+            }else -> {  println("default")      }
+
+        }
+
+        viewModel.user.observe(this, Observer {
             store.user = it
-            startActivity(Intent(this, SellerDashboardActivity::class.java))
-            finish()
+            redirect()
         })
+    }
+
+    private fun redirect()
+    {
+        when(userType)
+        {
+            "Farmer" -> {
+                startActivity(Intent(this, SellerDashboardActivity::class.java))
+                finish()
+            }
+            "Buyer" -> {
+                startActivity(Intent(this, BuyerDashboardActivity::class.java))
+                finish()
+            }
+            "Logistic" ->{
+
+            }else -> {  println("default")      }
+
+        }
     }
 
     private fun isValid(): Boolean {
@@ -118,6 +159,20 @@ class SignUpActivity : BaseAppCompatActivity() {
             isValid = false
         }
 
+        if (userType.isEmpty()) {
+
+            alert {
+                title = "Error"
+                message = "Please select UserType"
+                isCancelable = false
+                positiveButton(getString(R.string.Ok)) { dialog ->
+                    dialog.dismiss()
+                }
+            }.show()
+
+            isValid = false
+        }
+
         return isValid
     }
     private fun onErrorChange()
@@ -127,5 +182,17 @@ class SignUpActivity : BaseAppCompatActivity() {
         firstName.resetErrorOnChange(firstName)
         lastName.resetErrorOnChange(lastName)
         mobile.resetErrorOnChange(mobile)
+    }
+
+    private fun onError(it :Error)
+    {
+        alert {
+            title = "Error"
+            message = it.messages
+            isCancelable = false
+            positiveButton(getString(R.string.Ok)) { dialog ->
+                dialog.dismiss()
+            }
+        }.show()
     }
 }

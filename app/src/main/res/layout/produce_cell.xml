@@ -41,7 +41,7 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                         android:textColor="@color/grey_80"
                         android:textStyle="bold"
-                        android:textSize="@dimen/spacing_large_2" />
+                        android:textSize="@dimen/list_item_text_size19" />
 
                     <TextView
                         android:id="@+id/availableDate"
@@ -51,7 +51,7 @@
                         android:text=" Feburary 30 2021"
                         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                         android:textColor="@color/grey_60"
-                        android:textStyle="bold" />
+                        android:textStyle="normal" />
 
                 </LinearLayout>
 
@@ -68,19 +68,18 @@
                         android:layout_height="48dp"
                         android:layout_gravity="right" >
 
-                        <ImageView
+                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_centerInParent="true"
-                            android:padding="@dimen/spacing_large"
-                            android:background="@drawable/btn_rounded_tag_outline"
+                            android:tint="@color/teal_300"
                             app:srcCompat="@drawable/shape_circle" />
 
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_centerInParent="true"
-                            android:tint="@color/grey_80"
+                            android:tint="@color/grey_3"
                             android:contentDescription="Delete"
                             app:srcCompat="@drawable/ic_create"
                             tools:ignore="VectorDrawableCompat" />
@@ -88,7 +87,7 @@
                     </RelativeLayout>
 
                     <View
-                        android:layout_width="@dimen/spacing_xsmall"
+                        android:layout_width="@dimen/spacing_small"
                         android:layout_height="0dp" />
 
                     <RelativeLayout
@@ -101,7 +100,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_centerInParent="true"
-                            android:background="@drawable/btn_rounded_tag_outline"
+                            android:tint="@color/red_300"
                             app:srcCompat="@drawable/shape_circle" />
 
                         <ImageView
@@ -109,8 +108,8 @@
                             android:layout_height="20dp"
                             android:layout_centerInParent="true"
                             android:importantForAccessibility="no"
-                            android:contentDescription="Edit"
-                            android:tint="@color/grey_80"
+                            android:contentDescription="Delete"
+                            android:tint="@color/grey_3"
                             app:srcCompat="@drawable/ic_delete"
                             tools:ignore="VectorDrawableCompat" />
 
@@ -125,10 +124,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_small"
+                android:fontFamily="@font/crimson_text_regular"
                 android:text="Your news feed helps you keep up with recent activity on repositories you watch and people on repositories you watch and people you follow."
                 android:textColor="@color/grey_80"
                 android:textSize="@dimen/spacing_large"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
         </LinearLayout>
 

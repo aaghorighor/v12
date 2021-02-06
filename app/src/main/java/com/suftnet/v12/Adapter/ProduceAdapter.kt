@@ -107,6 +107,13 @@ class ProduceAdapter(private val context : Context,
         notifyItemRangeInserted(positionStart, itemCount)
     }
 
+    fun remove(item: Produce, position : Int)
+    {
+        this.produces.remove(item)
+        notifyItemRemoved(position)
+        notifyDataSetChanged()
+    }
+
     fun clear() {
         produces = ArrayList()
         notifyDataSetChanged()
@@ -144,8 +151,8 @@ class ProduceAdapter(private val context : Context,
         }
     }
     interface OnItemClickListener {
-        fun onEdit(mobileLog: Produce, position: Int)
-        fun onDelete(mobileLog: Produce, position: Int)
+        fun onEdit(produce: Produce, position: Int)
+        fun onDelete(produce: Produce, position: Int)
     }
 
     interface OnLoadMoreListener {

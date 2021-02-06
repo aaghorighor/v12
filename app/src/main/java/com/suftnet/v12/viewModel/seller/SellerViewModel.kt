@@ -1,16 +1,13 @@
-package com.suftnet.v12.viewModel.account
+package com.suftnet.v12.viewModel
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.*
 import com.suftnet.v12.api.Config
 import com.suftnet.v12.api.Http
 import com.suftnet.v12.api.model.request.CreateUser
-import com.suftnet.v12.api.model.response.User
 import com.suftnet.v12.model.Error
 import com.suftnet.v12.repository.seller.SellerRepository
 import com.suftnet.v12.util.NetWork
-import kotlinx.coroutines.launch
 
 class SellerViewModel(application: Application) : AndroidViewModel(application) {
     companion object {
@@ -29,19 +26,12 @@ class SellerViewModel(application: Application) : AndroidViewModel(application) 
     fun create(createUser: CreateUser) = liveData {
 
         loading.value = true
-
         var response = sellerRepository.create(createUser)
         if (response.isSuccessful) {
-
-            Log.d("_____","" + response.body()!!.userName)
-            Log.d("_____","" + response.body()!!.token)
-            Log.d("_____","" + response.body()!!.id)
-
             emit(response.body())
         } else {
             error.value = NetWork.errorHandler(response)
         }
-
         loading.value = false
     }
 }

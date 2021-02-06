@@ -1,4 +1,4 @@
-package com.suftnet.v12.repository.seller
+package com.suftnet.v12.repository
 
 import com.suftnet.v12.api.Buyer
 import com.suftnet.v12.api.Seller

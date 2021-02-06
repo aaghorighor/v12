@@ -3,8 +3,9 @@ package com.suftnet.v12.api
 object Config {
 
     object Url {
+
         const val HOST = "http://kcmkcm-001-site9.btempurl.com/api/"
-        //const val HOST = "http://localhost:62137/api/"
+        //const val HOST = "http://192.168.0.11:8082/api/"
         object Account{
             const val Login ="${HOST}account/login"
         }
@@ -25,6 +26,15 @@ object Config {
         object Logistic{
             const val create ="${HOST}driver/create"
             const val fetch ="${HOST}driver/fetch"
+        }
+        object Market{
+            const val fetch ="${HOST}market/fetch"
+            const val getBy ="${HOST}market/getBy"
+        }
+        object Order{
+            const val create ="${HOST}order/create"
+            const val pendingOrders ="${HOST}order/pendingOrders"
+            const val completedOrders ="${HOST}order/completedOrders"
         }
     }
 }

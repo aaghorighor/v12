@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/ex_white"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -64,10 +65,47 @@
                 android:hint="@string/ex_hint_password"
                 android:inputType="textPassword" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:layout_marginLeft="@dimen/spacing_mlarge"
+                android:layout_marginRight="@dimen/spacing_mlarge"
+                android:orientation="horizontal">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/user_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_medium_10"
+                    app:chipSpacing="@dimen/ex_spacing_middle"
+                    android:layout_gravity="center_horizontal"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/farmer"
+                        style="@style/ExFilterChip"
+                        android:text="Farmer" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/buyer"
+                        style="@style/ExFilterChip"
+                        android:text="Buyer" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/driver"
+                        style="@style/ExFilterChip"
+                        android:text="Logistic" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+            </LinearLayout>
+
+
             <TextView
                 android:id="@+id/signUp"
                 style="@style/ThemeExMaterialButton"
-                android:layout_marginTop="@dimen/ex_spacing_large"
+                android:layout_marginTop="@dimen/spacing_small"
                 android:clickable="true"
                 android:text="@string/ex_lbl_sign_up" />
 

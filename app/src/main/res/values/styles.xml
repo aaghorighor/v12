@@ -247,7 +247,6 @@
         <item name="windowActionBar">false</item>
     </style>
 
-
     <!-- Base application theme. -->
     <!-- Base application theme. -->
     <style name="ExAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -280,6 +279,14 @@
         <item name="fontPath">@string/font_regular</item>
     </style>
 
+    <style name="DPCustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/DPCustomBottomSheetStyle</item>
+    </style>
+
+    <style name="DPCustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
     <style name="ExEditTextStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -295,6 +302,23 @@
         <item name="android:layout_marginStart">@dimen/ex_spacing_standard_new</item>
         <item name="android:layout_marginEnd">@dimen/ex_spacing_standard_new</item>
     </style>
+
+    <style name="TwoLayoutEditTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/ex_spacing_standard_new</item>
+        <item name="android:paddingEnd">@dimen/ex_spacing_control</item>
+        <item name="android:paddingTop">@dimen/ex_spacing_middle</item>
+        <item name="android:paddingBottom">@dimen/ex_spacing_middle</item>
+        <item name="android:textColor">@color/ex_textColorPrimary</item>
+        <item name="android:textSize">@dimen/ex_font_size_medium</item>
+        <item name="android:background">@drawable/ex_bg_edittext</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_marginStart">@dimen/ex_spacing_standard_new</item>
+        <item name="android:layout_marginEnd">@dimen/ex_spacing_standard_new</item>
+    </style>
+
     <style name="ThemeExMaterialButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -382,6 +406,107 @@
         <item name="android:lines">2</item>
         <item name="android:textColor">@color/ex_textColorPrimary</item>
         <item name="android:textSize">@dimen/ex_font_size_medium</item>
+    </style>
+
+    <style name="ExButtonStyleStroked">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="android:textSize">@dimen/ex_font_size_normal</item>
+        <item name="android:textColor">@color/ex_textColorPrimary</item>
+        <item name="android:textAppearance">@style/FontMedium</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">@dimen/ex_spacing_middle</item>
+        <item name="android:background">@drawable/ex_bg_stroke</item>
+    </style>
+
+    <style name="ExButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <!--        <item name="android:foreground">?selectableItemBackground</item>-->
+        <item name="android:textSize">@dimen/ex_font_size_normal</item>
+        <item name="android:textColor">@color/ex_white</item>
+        <item name="android:textAppearance">@style/FontMedium</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:background">@drawable/ex_bg_button</item>
+    </style>
+
+    <style name="ExEditTextLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/ex_spacing_standard_new</item>
+        <item name="android:layout_marginEnd">@dimen/ex_spacing_standard_new</item>
+        <item name="android:textColor">@color/ex_textColorPrimary</item>
+        <item name="android:textSize">@dimen/ex_font_size_medium</item>
+    </style>
+    <style name="ExEditTextHalfLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/ex_spacing_standard_new</item>
+        <item name="android:layout_marginEnd">@dimen/ex_spacing_standard_new</item>
+        <item name="android:textColor">@color/ex_textColorPrimary</item>
+        <item name="android:textSize">@dimen/ex_font_size_medium</item>
+    </style>
+    <style name="ExEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/ex_font_size_medium</item>
+    </style>
+    <style name="ExEditText.Normal">
+        <item name="android:padding">@dimen/ex_spacing_standard</item>
+        <item name="android:layout_marginTop">@dimen/ex_spacing_standard</item>
+        <item name="android:layout_marginStart">@dimen/ex_spacing_standard_new</item>
+        <item name="android:layout_marginEnd">@dimen/ex_spacing_standard_new</item>
+        <item name="android:background">@drawable/dp_bg_edittext</item>
+    </style>
+    <style name="EditText">
+        <item name="android:padding">@dimen/ex_spacing_standard</item>
+        <item name="android:layout_marginTop">@dimen/ex_spacing_standard</item>
+        <item name="android:layout_marginStart">@dimen/ex_spacing_standard_new</item>
+        <item name="android:layout_marginEnd">@dimen/ex_spacing_standard_new</item>
+        <item name="android:background">@drawable/dp_bg_edittext</item>
+    </style>
+
+    <style name="DPHeading">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/ex_spacing_standard_new</item>
+        <item name="android:textSize">@dimen/ex_font_size_large</item>
+        <item name="android:textColor">@color/ex_textColorPrimary</item>
+        <item name="android:textAppearance">@style/FontBold</item>
+    </style>
+    <style name="DPSubHeading">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/ex_textColorPrimary</item>
+        <item name="android:textSize">@dimen/ex_font_size_medium</item>
+        <item name="android:lineSpacingExtra">@dimen/ex_spacing_control</item>
+    </style>
+
+    <style name="ExFilterLabel" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/grey_3</item>
+        <item name="chipBackgroundColor">@color/grey_80</item>
+        <item name="chipCornerRadius">@dimen/ex_spacing_standard</item>
+        <item name="android:textSize">@dimen/ex_font_size_medium</item>
+    </style>
+
+    <style name="ExFilterChip" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/ex_black</item>
+        <item name="chipStrokeColor">@color/ex_view_color</item>
+        <item name="chipCornerRadius">@dimen/ex_spacing_standard</item>
+        <item name="android:textSize">@dimen/ex_font_size_medium</item>
+        <item name="chipBackgroundColor">@color/ex_white</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStartPadding">@dimen/ex_spacing_standard</item>
+        <item name="chipEndPadding">@dimen/ex_spacing_standard</item>
     </style>
 
 </resources>

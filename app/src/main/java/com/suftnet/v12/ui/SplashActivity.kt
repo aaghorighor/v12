@@ -5,6 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
+import com.suftnet.v12.MyApplication
 import com.suftnet.v12.R
 import com.suftnet.v12.Store.Store
 
@@ -26,8 +28,22 @@ class SplashActivity : BaseAppCompatActivity() {
 
     private fun start() = if(store.isSignedIn)
     {
-        startActivity(Intent(this, SellerDashboardActivity::class.java))
-        finish()
+        when(store.user!!.userType)
+        {
+            "Farmer" -> {
+                startActivity(Intent(this, SellerDashboardActivity::class.java))
+                finish()
+            }
+            "Buyer" -> {
+                startActivity(Intent(this, BuyerDashboardActivity::class.java))
+                finish()
+            }
+            "Logistic" ->{
+
+            }else -> {  println("default")      }
+
+        }
+
     }else {
         startActivity(Intent(this, LoginActivity::class.java))
         finish()

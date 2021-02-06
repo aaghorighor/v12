@@ -1,5 +1,7 @@
 package com.suftnet.v12.api
 
+import com.suftnet.v12.MyApplication
+import com.suftnet.v12.Store.Store
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -27,15 +29,25 @@ object NetworkServiceProvider {
 
     }
     private fun addHeaderInterceptor(): Interceptor {
+        var store = Store(MyApplication.instance)
         return Interceptor { chain ->
-            val originalRequest = chain.request()
-            val requestBuilder = originalRequest.newBuilder()
-                // Provide your custom header here
-                .header("token", "")
-                .method(originalRequest.method(), originalRequest.body())
-            val request = requestBuilder.build()
+
+            val request = if (store.isSignedIn) {
+                chain.request().newBuilder().addHeader("Authorization", "Bearer ${store.user!!.token}").build()
+            } else {
+                chain.request()
+            }
+
             chain.proceed(request)
         }
+    }
+    private fun connectionSpec() :MutableList<ConnectionSpec> {
+        val specs: MutableList<ConnectionSpec> = ArrayList()
+        specs.add(ConnectionSpec.COMPATIBLE_TLS)
+        specs.add(ConnectionSpec.MODERN_TLS)
+        specs.add(ConnectionSpec.CLEARTEXT)
+
+        return specs
     }
     private fun getOkHttpClient(): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
@@ -53,6 +65,7 @@ object NetworkServiceProvider {
             .connectTimeout(60L, TimeUnit.SECONDS)
             .readTimeout(60L, TimeUnit.SECONDS)
             .writeTimeout(60L, TimeUnit.SECONDS)
+                .connectionSpecs(connectionSpec())
             .build()
     }
 //    @SuppressLint("NewApi")

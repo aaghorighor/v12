@@ -1,15 +1,13 @@
-package com.suftnet.v12.viewModel.account
+package com.suftnet.v12.viewModel
 
 import android.app.Application
 import androidx.lifecycle.*
 import com.suftnet.v12.api.Config
 import com.suftnet.v12.api.Http
 import com.suftnet.v12.api.model.request.CreateUser
-import com.suftnet.v12.api.model.response.User
 import com.suftnet.v12.model.Error
-import com.suftnet.v12.repository.seller.BuyerRepository
+import com.suftnet.v12.repository.BuyerRepository
 import com.suftnet.v12.util.NetWork
-import kotlinx.coroutines.launch
 
 class BuyerViewModel(application: Application) : AndroidViewModel(application) {
     companion object {
@@ -25,20 +23,15 @@ class BuyerViewModel(application: Application) : AndroidViewModel(application) {
         buyerRepository =  BuyerRepository(networkService)
     }
 
-    fun create(createUser: CreateUser) :LiveData<User> {
-        val liveData = MutableLiveData<User>()
+    fun create(createUser: CreateUser) = liveData {
 
-        viewModelScope.launch {
-            loading.value = true
-            var response = buyerRepository.create(createUser)
-            if (response.isSuccessful) {
-                liveData.value =response.body()
-            } else {
-                error.value = NetWork.errorHandler(response)
-            }
-            loading.value = false
+        loading.value = true
+        var response = buyerRepository.create(createUser)
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else {
+            error.value = NetWork.errorHandler(response)
         }
-
-        return liveData
+        loading.value = false
     }
 }

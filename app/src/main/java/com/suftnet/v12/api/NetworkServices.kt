@@ -6,6 +6,7 @@ import retrofit2.http.GET
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface Account {
     @POST(Config.Url.Account.Login)
@@ -36,4 +37,20 @@ interface Buyer {
 interface Driver {
     @POST(Config.Url.Logistic.create)
     suspend fun create(@Body body: CreateUser) : Response<User>
+}
+
+interface Market {
+    @GET(Config.Url.Market.fetch)
+    suspend fun fetch() : Response<List<com.suftnet.v12.api.model.response.Produce>>
+    @GET(Config.Url.Market.getBy)
+    suspend fun getBy(@Query("id") id: String) : Response<com.suftnet.v12.api.model.response.Produce>
+}
+
+interface Order {
+    @POST(Config.Url.Order.create)
+    suspend fun create(@Body body: CreateOrder) : Response<Boolean>
+    @GET(Config.Url.Order.pendingOrders)
+    suspend fun pending() : Response<List<com.suftnet.v12.api.model.response.Order>>
+    @GET(Config.Url.Order.completedOrders)
+    suspend fun completed() : Response<List<com.suftnet.v12.api.model.response.Order>>
 }

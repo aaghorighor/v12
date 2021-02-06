@@ -1,4 +1,4 @@
-package com.suftnet.v12.repository.produce
+package com.suftnet.v12.repository
 
 import com.suftnet.v12.api.Produce
 import com.suftnet.v12.api.model.request.CreateProduce

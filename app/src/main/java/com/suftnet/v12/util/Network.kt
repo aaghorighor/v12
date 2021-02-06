@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import retrofit2.Response
 import com.google.gson.JsonParser
@@ -36,9 +37,30 @@ object NetWork {
     fun errorHandler(response: Response<*>): com.suftnet.v12.model.Error {
 
         val error = response.errorBody()?.string()
-        val message = JsonParser().parse(error)
-            .asJsonObject["message"]
-            .toString()
+        var message = ""
+
+        message = when(response.code())
+        {
+            400 -> {
+                JsonParser().parse(error)
+                        .asJsonObject["message"]
+                        .toString()
+            }
+            401 -> {
+                JsonParser().parse(error)
+                        .asJsonObject["message"]
+                        .toString()
+            }
+            500 -> {
+
+                JsonParser().parse(error)
+                        .asJsonObject["Message"]
+                        .toString()
+            }
+            else -> {
+                "Unknown Error ${response.code()}"
+            }
+        }
 
         return com.suftnet.v12.model.Error(message, response.code())
     }

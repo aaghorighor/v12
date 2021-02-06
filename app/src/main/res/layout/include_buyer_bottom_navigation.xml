@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:baselineAligned="false"
+    android:background="@drawable/ex_bg_bottom_navigation"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingTop="@dimen/ex_spacing_standard"
+    android:paddingBottom="@dimen/ex_spacing_standard">
+
+    <LinearLayout
+        android:id="@+id/action_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="6dp"
+            app:srcCompat="@drawable/ic_home"
+            android:tint="@color/ex_colorPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textAppearance="@style/FontMedium"
+            android:layout_gravity="center"
+            android:textSize="@dimen/ex_font_size_medium"
+            android:textColor="@color/ex_colorPrimary" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/action_market"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="6dp"
+            android:tint="@color/ex_textColorPrimary"
+            app:srcCompat="@drawable/ic_buyer_basket" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Market"
+            android:layout_gravity="center"
+            android:textSize="@dimen/ex_font_size_medium"
+            android:textAppearance="@style/FontMedium"
+            android:textColor="@color/ex_textColorPrimary" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/action_messages"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="6dp"
+            android:tint="@color/ex_textColorPrimary"
+            app:srcCompat="@drawable/ic_furum" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Messages"
+            android:layout_gravity="center"
+            android:textSize="@dimen/ex_font_size_medium"
+            android:textAppearance="@style/FontMedium"
+            android:textColor="@color/ex_textColorPrimary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/action_settings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="6dp"
+            android:tint="@color/ex_textColorPrimary"
+            app:srcCompat="@drawable/ic_settings" />
+
+        <TextView
+            android:id="@+id/setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ex_lbl_setting"
+            android:layout_gravity="center"
+            android:textSize="@dimen/ex_font_size_medium"
+            android:textAppearance="@style/FontMedium"
+            android:textColor="@color/ex_textColorPrimary" />
+    </LinearLayout>
+
+</LinearLayout>

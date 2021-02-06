@@ -41,9 +41,11 @@ class HomeFragment : Fragment() {
 
     private fun listener(view :View)
     {
-        view.username.text = store.user!!.userName
+        //view.username.text = store.user!!.userName
 
         view.exit.setOnClickListener {
+
+            store.user = null;
             val intent = Intent(it!!.context, LoginActivity::class.java)
             startActivity(intent)
         }
