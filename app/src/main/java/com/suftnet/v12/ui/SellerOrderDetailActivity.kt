@@ -1,10 +1,10 @@
 package com.suftnet.v12.ui
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import com.suftnet.v12.R
 import com.suftnet.v12.Store.Store
 import com.suftnet.v12.api.model.response.Order
@@ -12,16 +12,34 @@ import com.suftnet.v12.util.CurrencyFormatter
 import com.suftnet.v12.util.OrderStatus
 import com.suftnet.v12.util.Util
 import kotlinx.android.synthetic.main.order_detail.*
+import kotlinx.android.synthetic.main.order_detail.action_phone
+import kotlinx.android.synthetic.main.order_detail.action_sms
+import kotlinx.android.synthetic.main.order_detail.availableDate
+import kotlinx.android.synthetic.main.order_detail.back_action
+import kotlinx.android.synthetic.main.order_detail.drop_off
+import kotlinx.android.synthetic.main.order_detail.name
+import kotlinx.android.synthetic.main.order_detail.order_date
+import kotlinx.android.synthetic.main.order_detail.order_id
+import kotlinx.android.synthetic.main.order_detail.order_status
+import kotlinx.android.synthetic.main.order_detail.pick_up
+import kotlinx.android.synthetic.main.order_detail.price
+import kotlinx.android.synthetic.main.order_detail.quantity
+import kotlinx.android.synthetic.main.seller_order_detail.*
 import org.jetbrains.anko.textColor
 
-class OrderDetailActivity : BaseAppCompatActivity()  {
+class SellerOrderDetailActivity : BaseAppCompatActivity()  {
+
+    companion object {
+        private const val ADD_OPERATOR = 100
+    }
+
     private lateinit var store: Store
     private var phoneNumber : String = ""
 
     @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.order_detail)
+        setContentView(R.layout.seller_order_detail)
 
         onInit()
     }
@@ -35,12 +53,18 @@ class OrderDetailActivity : BaseAppCompatActivity()  {
 
     private fun listener()
     {
-        back_action.setOnClickListener {
+        add_action.setOnClickListener {
+            var i = Intent(this@SellerOrderDetailActivity, DriverActivity::class.java)
+            i.putExtra("order",  intent.getSerializableExtra("order"))
+            i.putExtra("from",  intent.getSerializableExtra("from"))
+            startActivityForResult(i,ADD_OPERATOR)
+        }
 
+        back_action.setOnClickListener {
             when(intent.getStringExtra("from"))
             {
                 "0" -> {
-                    var i = Intent(this@OrderDetailActivity, PendingOrderActivity::class.java)
+                    var i = Intent(this@SellerOrderDetailActivity, SellerPendingOrderActivity::class.java)
                     i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -48,14 +72,13 @@ class OrderDetailActivity : BaseAppCompatActivity()  {
                 }
 
                 "1" -> {
-                    var i = Intent(this@OrderDetailActivity, CompletedOrderActivity::class.java)
+                    var i = Intent(this@SellerOrderDetailActivity, SellerCompletedOrderActivity::class.java)
                     i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(i)
                 }
             }
-
         }
 
         action_phone.setOnClickListener {
@@ -136,6 +159,16 @@ class OrderDetailActivity : BaseAppCompatActivity()  {
                 @Suppress("DEPRECATION")
                 order_status.textColor = resources.getColor(R.color.grey_90)
             }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == ADD_OPERATOR && resultCode == Activity.RESULT_OK) {
+            names.text = data?.extras!!["names"] as String
+            mobile.text = data?.extras!!["mobile"] as String
+            email.text = data?.extras!!["email"] as String
         }
     }
 

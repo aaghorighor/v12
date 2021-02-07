@@ -34,4 +34,24 @@ class SellerViewModel(application: Application) : AndroidViewModel(application) 
         }
         loading.value = false
     }
+
+    fun pending() =  liveData{
+
+        loading.value = true
+        var response = sellerRepository.pending()
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else error.value = NetWork.errorHandler(response)
+        loading.value = false
+    }
+
+    fun completed() =  liveData{
+
+        loading.value = true
+        var response = sellerRepository.completed()
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else error.value = NetWork.errorHandler(response)
+        loading.value = false
+    }
 }

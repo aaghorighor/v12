@@ -34,4 +34,14 @@ class DriverViewModel(application: Application) : AndroidViewModel(application) 
         }
         loading.value = false
     }
+
+    fun fetch() =  liveData{
+
+        loading.value = true
+        var response = driverRepository.fetch()
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else error.value = NetWork.errorHandler(response)
+        loading.value = false
+    }
 }

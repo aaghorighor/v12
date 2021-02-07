@@ -18,9 +18,13 @@
         android:supportsRtl="true"
         android:theme="@style/ExAppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.OrderDetailActivity" />
-        <activity android:name=".ui.CompletedOrderActivity" />
-        <activity android:name=".ui.PendingOrderActivity" />
+        <activity android:name=".ui.SellerCompletedOrderActivity" />
+        <activity android:name=".ui.SellerPendingOrderActivity" />
+        <activity android:name=".ui.SellerOrderDetailActivity" />
+        <activity android:name=".ui.DriverActivity" />
+        <activity android:name=".ui.BuyerOrderDetailActivity" />
+        <activity android:name=".ui.BuyerCompletedOrderActivity" />
+        <activity android:name=".ui.BuyerPendingOrderActivity" />
         <activity android:name=".ui.CheckoutActivity" />
         <activity android:name=".ui.ItemDetailActivity" />
         <activity android:name=".ui.MarketActivity" />

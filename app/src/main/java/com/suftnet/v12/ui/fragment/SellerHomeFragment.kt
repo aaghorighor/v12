@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.suftnet.v12.R
 import com.suftnet.v12.Store.Store
-import com.suftnet.v12.ui.LoginActivity
-import kotlinx.android.synthetic.main.home_fragment.view.*
+import com.suftnet.v12.ui.*
+import kotlinx.android.synthetic.main.seller_home_fragment.view.*
 
-class HomeFragment : Fragment() {
+class SellerHomeFragment : Fragment() {
 
     private val USER_ID : String = "userId"
     private var userId: String? = null
@@ -29,7 +29,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        var view = inflater.inflate(R.layout.home_fragment, container, false)
+        var view = inflater.inflate(R.layout.seller_home_fragment, container, false)
         init(view)
         return view
     }
@@ -43,6 +43,16 @@ class HomeFragment : Fragment() {
     {
         //view.username.text = store.user!!.userName
 
+        view.pending_action.setOnClickListener {
+            val i = Intent(it!!.context, SellerPendingOrderActivity::class.java)
+            startActivity(i)
+        }
+
+        view.completed_action.setOnClickListener {
+            val i = Intent(it!!.context, SellerCompletedOrderActivity::class.java)
+            startActivity(i)
+        }
+
         view.exit.setOnClickListener {
 
             store.user = null;
@@ -54,7 +64,7 @@ class HomeFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(userId: String) =
-                HomeFragment().apply {
+            SellerHomeFragment().apply {
                     arguments = Bundle().apply {
                         putString(USER_ID, userId)
                     }

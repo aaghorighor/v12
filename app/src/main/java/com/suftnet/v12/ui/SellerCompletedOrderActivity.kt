@@ -18,9 +18,9 @@ import com.suftnet.v12.Adapter.OrderAdapter
 import com.suftnet.v12.R
 import com.suftnet.v12.api.model.response.Order
 import com.suftnet.v12.model.Error
-import com.suftnet.v12.viewModel.OrderViewModel
+import com.suftnet.v12.viewModel.BuyerViewModel
+import com.suftnet.v12.viewModel.SellerViewModel
 import kotlinx.android.synthetic.main.order_placeholder.*
-import kotlinx.android.synthetic.main.produce_placeholder.*
 import kotlinx.android.synthetic.main.produce_placeholder.back_action
 import kotlinx.android.synthetic.main.produce_placeholder.main_title
 import kotlinx.android.synthetic.main.produce_placeholder.parent_view
@@ -28,12 +28,12 @@ import kotlinx.android.synthetic.main.produce_placeholder.swipe_refresh
 import org.jetbrains.anko.alert
 
 @Suppress("DEPRECATION", "DEPRECATED_IDENTITY_EQUALS")
-class CompletedOrderActivity : BaseAppCompatActivity() {
+class SellerCompletedOrderActivity : BaseAppCompatActivity() {
     companion object {
-        const val TAG = "CompletedOrderActivity"
+        const val TAG = "SellerCompletedOrderActivity"
     }
 
-    private lateinit var viewModel: OrderViewModel
+    private lateinit var viewModel: SellerViewModel
     private lateinit var orderAdapter : OrderAdapter
     private lateinit var recyclerView : RecyclerView
     private val context : Context = this
@@ -52,7 +52,7 @@ class CompletedOrderActivity : BaseAppCompatActivity() {
     private fun init()
     {
         setToolBar("Orders")
-        viewModel = ViewModelProvider(this).get(OrderViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(SellerViewModel::class.java)
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.layoutManager = LinearLayoutManager(context);
@@ -72,7 +72,7 @@ class CompletedOrderActivity : BaseAppCompatActivity() {
     private fun listener()
     {
         back_action.setOnClickListener {
-            var i = Intent(this@CompletedOrderActivity, BuyerDashboardActivity::class.java)
+            var i = Intent(this@SellerCompletedOrderActivity, SellerDashboardActivity::class.java)
             i.flags = FLAG_ACTIVITY_NEW_TASK
             i.flags = FLAG_ACTIVITY_CLEAR_TOP
             i.flags = FLAG_ACTIVITY_CLEAR_TASK
@@ -87,7 +87,7 @@ class CompletedOrderActivity : BaseAppCompatActivity() {
 
         orderAdapter.setOnItemClickListener(object:OrderAdapter.OnItemClickListener {
             override fun onView(order: Order, position: Int) {
-                var i = Intent(this@CompletedOrderActivity, OrderDetailActivity::class.java)
+                var i = Intent(this@SellerCompletedOrderActivity, SellerOrderDetailActivity::class.java)
                 i.putExtra("order", order)
                 i.putExtra("from", "1")
                 startActivity(i)

@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.view.View
 import com.suftnet.v12.R
 import com.suftnet.v12.Store.Store
-import com.suftnet.v12.ui.fragment.HomeFragment
+import com.suftnet.v12.ui.fragment.SellerHomeFragment
 import kotlinx.android.synthetic.main.include_bottom_navigation.*
-import kotlinx.android.synthetic.main.seller_dashboard.*
 
 class SellerDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  {
     private lateinit var store: Store
@@ -26,7 +25,7 @@ class SellerDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  
         if(store.user != null)
         {
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
-                HomeFragment.newInstance(store.user!!.id)).commit()
+                SellerHomeFragment.newInstance(store.user!!.id)).commit()
         }
 
         listener()
@@ -42,7 +41,7 @@ class SellerDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  
         when (p0?.id) {
             R.id.action_home -> {
                 supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
-                        HomeFragment.newInstance(store.user!!.id)).commit()
+                    SellerHomeFragment.newInstance(store.user!!.id)).commit()
             }
             R.id.action_produce -> {
                 val intent = Intent(this, ProduceActivity::class.java)

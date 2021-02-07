@@ -27,16 +27,26 @@ interface Produce {
 interface Seller {
     @POST(Config.Url.Seller.create)
     suspend fun create(@Body body: CreateUser) : Response<User>
+    @GET(Config.Url.Seller.sellerPendingOrders)
+    suspend fun pending() : Response<List<com.suftnet.v12.api.model.response.Order>>
+    @GET(Config.Url.Seller.sellerCompletedOrders)
+    suspend fun completed() : Response<List<com.suftnet.v12.api.model.response.Order>>
 }
 
 interface Buyer {
     @POST(Config.Url.Buyer.create)
     suspend fun create(@Body body: CreateUser) : Response<User>
+    @GET(Config.Url.Buyer.buyerPendingOrders)
+    suspend fun pending() : Response<List<com.suftnet.v12.api.model.response.Order>>
+    @GET(Config.Url.Buyer.buyerCompletedOrders)
+    suspend fun completed() : Response<List<com.suftnet.v12.api.model.response.Order>>
 }
 
 interface Driver {
     @POST(Config.Url.Logistic.create)
     suspend fun create(@Body body: CreateUser) : Response<User>
+    @GET(Config.Url.Logistic.fetch)
+    suspend fun fetch() : Response<List<com.suftnet.v12.api.model.response.Driver>>
 }
 
 interface Market {
@@ -49,8 +59,4 @@ interface Market {
 interface Order {
     @POST(Config.Url.Order.create)
     suspend fun create(@Body body: CreateOrder) : Response<Boolean>
-    @GET(Config.Url.Order.pendingOrders)
-    suspend fun pending() : Response<List<com.suftnet.v12.api.model.response.Order>>
-    @GET(Config.Url.Order.completedOrders)
-    suspend fun completed() : Response<List<com.suftnet.v12.api.model.response.Order>>
 }

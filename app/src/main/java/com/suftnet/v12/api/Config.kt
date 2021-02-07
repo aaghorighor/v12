@@ -18,10 +18,14 @@ object Config {
         object Seller{
             const val create ="${HOST}seller/create"
             const val fetch ="${HOST}seller/fetch"
+            const val sellerPendingOrders ="${HOST}seller/sellerPendingOrders"
+            const val sellerCompletedOrders ="${HOST}seller/sellerCompletedOrders"
         }
         object Buyer{
             const val create ="${HOST}buyer/create"
             const val fetch ="${HOST}buyer/fetch"
+            const val buyerPendingOrders ="${HOST}buyer/buyerPendingOrders"
+            const val buyerCompletedOrders ="${HOST}buyer/buyerCompletedOrders"
         }
         object Logistic{
             const val create ="${HOST}driver/create"
@@ -33,8 +37,6 @@ object Config {
         }
         object Order{
             const val create ="${HOST}order/create"
-            const val pendingOrders ="${HOST}order/pendingOrders"
-            const val completedOrders ="${HOST}order/completedOrders"
         }
     }
 }

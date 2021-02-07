@@ -8,13 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.suftnet.v12.R
 import com.suftnet.v12.Store.Store
-import com.suftnet.v12.ui.CompletedOrderActivity
+import com.suftnet.v12.ui.BuyerCompletedOrderActivity
 import com.suftnet.v12.ui.LoginActivity
-import com.suftnet.v12.ui.PendingOrderActivity
+import com.suftnet.v12.ui.BuyerPendingOrderActivity
 import kotlinx.android.synthetic.main.buyer_home_fragment.view.*
-import kotlinx.android.synthetic.main.home_fragment.view.*
-import kotlinx.android.synthetic.main.home_fragment.view.exit
-import kotlinx.android.synthetic.main.home_fragment.view.username
 
 class BuyerHomeFragment : Fragment() {
 
@@ -49,12 +46,12 @@ class BuyerHomeFragment : Fragment() {
         //view.username.text = store.user!!.userName
 
         view.pending_action.setOnClickListener {
-            val i = Intent(it!!.context, PendingOrderActivity::class.java)
+            val i = Intent(it!!.context, BuyerPendingOrderActivity::class.java)
             startActivity(i)
         }
 
         view.completed_action.setOnClickListener {
-            val i = Intent(it!!.context, CompletedOrderActivity::class.java)
+            val i = Intent(it!!.context, BuyerCompletedOrderActivity::class.java)
             startActivity(i)
         }
 

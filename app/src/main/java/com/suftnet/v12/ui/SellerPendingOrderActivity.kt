@@ -18,17 +18,17 @@ import com.suftnet.v12.Adapter.OrderAdapter
 import com.suftnet.v12.R
 import com.suftnet.v12.api.model.response.Order
 import com.suftnet.v12.model.Error
-import com.suftnet.v12.viewModel.OrderViewModel
+import com.suftnet.v12.viewModel.SellerViewModel
 import kotlinx.android.synthetic.main.order_placeholder.*
 import org.jetbrains.anko.alert
 
 @Suppress("DEPRECATION", "DEPRECATED_IDENTITY_EQUALS")
-class PendingOrderActivity : BaseAppCompatActivity() {
+class SellerPendingOrderActivity : BaseAppCompatActivity() {
     companion object {
-        const val TAG = "OrderActivity"
+        const val TAG = "SellerPendingOrderActivity"
     }
 
-    private lateinit var viewModel: OrderViewModel
+    private lateinit var viewModel: SellerViewModel
     private lateinit var orderAdapter : OrderAdapter
     private lateinit var recyclerView : RecyclerView
     private val context : Context = this
@@ -47,7 +47,7 @@ class PendingOrderActivity : BaseAppCompatActivity() {
     private fun init()
     {
         setToolBar("Orders")
-        viewModel = ViewModelProvider(this).get(OrderViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(SellerViewModel::class.java)
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.layoutManager = LinearLayoutManager(context);
@@ -67,7 +67,7 @@ class PendingOrderActivity : BaseAppCompatActivity() {
     private fun listener()
     {
         back_action.setOnClickListener {
-            var i = Intent(this@PendingOrderActivity, BuyerDashboardActivity::class.java)
+            var i = Intent(this@SellerPendingOrderActivity, SellerDashboardActivity::class.java)
             i.flags = FLAG_ACTIVITY_NEW_TASK
             i.flags = FLAG_ACTIVITY_CLEAR_TOP
             i.flags = FLAG_ACTIVITY_CLEAR_TASK
@@ -82,7 +82,7 @@ class PendingOrderActivity : BaseAppCompatActivity() {
 
         orderAdapter.setOnItemClickListener(object:OrderAdapter.OnItemClickListener {
             override fun onView(order: Order, position: Int) {
-                var i = Intent(this@PendingOrderActivity, OrderDetailActivity::class.java)
+                var i = Intent(this@SellerPendingOrderActivity, SellerOrderDetailActivity::class.java)
                 i.putExtra("order", order)
                 i.putExtra("from", "0")
                 startActivity(i)

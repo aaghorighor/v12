@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ex_app_background"
+    android:background="@color/grey_10"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -64,7 +64,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/llConsult"
+                    android:id="@+id/pending_action"
                     style="@style/ExHomeLayout">
 
                     <ImageView
@@ -78,7 +78,7 @@
 
                 </LinearLayout>
                 <LinearLayout
-                    android:id="@+id/llCareTeam"
+                    android:id="@+id/completed_action"
                     style="@style/ExHomeLayout"
                     android:layout_marginStart="4dp">
 
