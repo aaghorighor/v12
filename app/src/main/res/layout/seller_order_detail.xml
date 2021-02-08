@@ -19,10 +19,12 @@
 
             <ImageView
                 android:id="@+id/back_action"
-                android:layout_marginLeft="@dimen/ex_spacing_standard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ex_spacing_standard"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:padding="@dimen/ex_spacing_standard"
                 android:src="@drawable/ic_arrow_back"
                 android:tint="@color/ex_colorPrimary" />
 
@@ -105,7 +107,7 @@
                         android:textColor="@android:color/white" />
 
                 </LinearLayout>
-                <LinearLayout
+           <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingRight="@dimen/spacing_large"
@@ -113,22 +115,14 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/transparent"
-                        android:tint="@color/grey_40"
-                        app:srcCompat="@drawable/ic_create" />
-
                     <TextView
-                        android:id="@+id/order_date"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/spacing_xsmall"
                         android:layout_weight="1"
-                        android:text=""
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
-                        android:textColor="@color/grey_60" />
+                        android:text="Available By"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                        android:textColor="@color/green_600" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -208,7 +202,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/image_article_2" />
+                            app:srcCompat="@drawable/cassava_plants" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -275,48 +269,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/spacing_large"
-                    android:layout_marginRight="@dimen/spacing_large"
                     android:layout_marginTop="@dimen/spacing_mlarge"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Drop Off Address"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                            android:textColor="@color/grey_90"
-                            app:fontFamily="sans-serif-medium" />
-
-                        <ImageView
-                            android:layout_width="@dimen/spacing_mlarge"
-                            android:layout_height="@dimen/spacing_mlarge"
-                            android:tint="@color/teal_400"
-                            app:srcCompat="@drawable/ic_location" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/drop_off"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="top"
-                        android:text="WandaVision’ Episode 5: A Univer"
-                        android:layout_marginTop="@dimen/spacing_small"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/grey_40" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_medium"
                     android:layout_marginLeft="@dimen/spacing_large"
                     android:layout_marginRight="@dimen/spacing_large"
                     android:orientation="vertical">
@@ -354,6 +307,46 @@
                         android:textColor="@color/grey_40" />
 
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spacing_large"
+                    android:layout_marginRight="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Drop Off Address"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:textColor="@color/grey_90"
+                            app:fontFamily="sans-serif-medium" />
+
+                        <ImageView
+                            android:layout_width="@dimen/spacing_mlarge"
+                            android:layout_height="@dimen/spacing_mlarge"
+                            android:tint="@color/teal_400"
+                            app:srcCompat="@drawable/ic_location" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/drop_off"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:text="WandaVision’ Episode 5: A Univer"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                        android:textColor="@color/grey_40" />
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -374,7 +367,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center_vertical"
-                        android:text="Logistic"
+                        android:text="Transporter"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="@color/grey_80"
                         android:textStyle="bold" />
@@ -411,7 +404,7 @@
                         android:id="@+id/names"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/spacing_xsmall"
+                        android:layout_marginLeft="@dimen/spacing_small"
                         android:layout_weight="1"
                         android:text=""
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
@@ -438,7 +431,7 @@
                         android:id="@+id/mobile"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/spacing_xsmall"
+                        android:layout_marginLeft="@dimen/spacing_small"
                         android:layout_weight="1"
                         android:text=""
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
@@ -465,7 +458,7 @@
                         android:id="@+id/email"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/spacing_xsmall"
+                        android:layout_marginLeft="@dimen/spacing_small"
                         android:layout_weight="1"
                         android:text=""
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"

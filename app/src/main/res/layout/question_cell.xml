@@ -12,7 +12,7 @@
         android:layout_marginLeft="@dimen/spacing_medium_8"
         android:layout_marginRight="@dimen/spacing_medium_8"
         android:layout_marginTop="@dimen/spacing_medium_8"
-        android:background="@color/white"
+        android:background="@color/grey_3"
         app:cardCornerRadius="5dp"
         app:cardElevation="1dp"
         app:cardUseCompatPadding="false">
@@ -35,18 +35,12 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <RelativeLayout
+                    <ImageView
+                        android:id="@+id/image"
                         android:layout_width="45dp"
-                        android:layout_height="45dp">
-
-                        <ImageView
-                            android:id="@+id/imageView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            app:srcCompat="@drawable/shape_circle" />
-
-                    </RelativeLayout>
+                        android:layout_height="45dp"
+                        android:src="@drawable/blank_person2"
+                        app:srcCompat="@drawable/shape_circle" />
 
                     <View
                         android:layout_width="@dimen/spacing_medium"
@@ -79,6 +73,58 @@
                             android:textColor="@color/grey_40" />
 
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:id="@+id/sms_layout"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:visibility="visible">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:tint="@color/grey_5"
+                                app:srcCompat="@drawable/shape_circle" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_centerInParent="true"
+                                android:contentDescription="Ssm"
+                                android:tint="@color/colorPrimary"
+                                app:srcCompat="@drawable/ic_sms" />
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/phone_layout"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="@dimen/spacing_small">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:tint="@color/grey_5"
+                                app:srcCompat="@drawable/shape_circle" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_centerInParent="true"
+                                android:contentDescription="Call"
+                                android:tint="@color/colorPrimary"
+                                app:srcCompat="@drawable/ic_phone" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
 
                 <TextView
@@ -89,52 +135,6 @@
                     android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     android:textColor="@color/grey_90" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="@dimen/spacing_medium"
-                android:background="@color/grey_5" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_xlarge"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/spacing_medium_8"
-                android:paddingLeft="@dimen/spacing_large"
-                android:paddingRight="@dimen/spacing_large">
-
-                <LinearLayout
-                    android:id="@+id/linearLayout_comment"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="@dimen/spacing_48"
-                        android:layout_height="@dimen/spacing_48"
-                        android:layout_marginEnd="@dimen/spacing_middle"
-                        android:layout_marginRight="@dimen/spacing_middle"
-                        android:contentDescription=""
-                        android:importantForAccessibility="no"
-                        android:tint="@color/grey_10"
-                        app:srcCompat="@drawable/ic_textsms" />
-
-                    <TextView
-                        android:id="@+id/comment_count"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:text=""
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                        android:textColor="@color/grey_60" />
-
-                </LinearLayout>
 
             </LinearLayout>
 

@@ -36,6 +36,7 @@ class BuyerDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  {
     {
         action_home.setOnClickListener(this)
         action_market.setOnClickListener(this)
+        action_messages.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -47,6 +48,11 @@ class BuyerDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  {
             R.id.action_market -> {
                 val intent = Intent(this, MarketActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.action_messages -> {
+                val i = Intent(this, QuestionActivity::class.java)
+                i.putExtra("from", "1")
+                startActivity(i)
             }
         }
     }

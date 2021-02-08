@@ -14,10 +14,12 @@
 
         <ImageView
             android:id="@+id/back_action"
-            android:layout_marginLeft="@dimen/ex_spacing_standard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ex_spacing_standard"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/ex_spacing_standard"
             android:src="@drawable/ic_arrow_back"
             android:tint="@color/ex_colorPrimary" />
 
@@ -43,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@drawable/btn_rounded_tag_outline"
+            android:background="@drawable/btn_rounded_tag"
             android:src="@drawable/ic_sms"
             android:tint="@color/indigo_400" />
 
@@ -52,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@drawable/btn_rounded_tag_outline"
+            android:background="@drawable/btn_rounded_tag"
             android:layout_marginRight="@dimen/spacing_large"
             android:src="@drawable/ic_phone"
             android:tint="@color/indigo_400" />
@@ -79,7 +81,7 @@
                 android:layout_height="250dp"
                 android:foreground="@color/overlay_dark_30"
                 android:scaleType="centerCrop"
-                android:src="@drawable/image_article_2"
+                android:src="@drawable/cassava_plants"
                 app:layout_collapseMode="parallax" />
 
             <androidx.cardview.widget.CardView
@@ -120,14 +122,12 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Available Date"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                                android:gravity="right"
-                                android:textColor="@color/grey_60"
-                                android:textSize="@dimen/spacing_large"
-                                android:textStyle="bold" />
+                                android:layout_gravity="right"
+                                android:text="Available By"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/green_600" />
 
                             <TextView
                                 android:id="@+id/availableDate"

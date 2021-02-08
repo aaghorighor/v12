@@ -96,7 +96,7 @@
                 <TextView
                     android:id="@+id/signUp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_marginStart="@dimen/ex_spacing_standard"
                     android:text="@string/ex_lbl_link_sign_up"
                     android:textColor="@color/ex_textColorPrimary"

@@ -35,6 +35,7 @@ class SellerDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  
     {
         action_home.setOnClickListener(this)
         action_produce.setOnClickListener(this)
+        action_messages.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -46,6 +47,11 @@ class SellerDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  
             R.id.action_produce -> {
                 val intent = Intent(this, ProduceActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.action_messages -> {
+                val i = Intent(this, QuestionActivity::class.java)
+                i.putExtra("from", "0")
+                startActivity(i)
             }
         }
     }

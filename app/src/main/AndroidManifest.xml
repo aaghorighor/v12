@@ -18,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/ExAppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.QuestionActivity" />
         <activity android:name=".ui.CompletedJobsActivity" />
         <activity android:name=".ui.JobDetailActivity" />
         <activity android:name=".ui.PendingJobsActivity" />

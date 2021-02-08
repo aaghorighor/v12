@@ -49,7 +49,7 @@ class DriverHomeFragment : Fragment() {
         }
 
         view.completed_action.setOnClickListener {
-            val i = Intent(it!!.context, PendingJobsActivity::class.java)
+            val i = Intent(it!!.context, CompletedJobsActivity::class.java)
             startActivity(i)
         }
 

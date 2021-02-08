@@ -11,6 +11,6 @@ data class Answer (
     @SerializedName("createdBy") val createdBy : String,
     @SerializedName("id") val id : String,
     @SerializedName("questionId") val questionId : String,
-    @SerializedName("phoneNumber") val phoneNumber : Int,
+    @SerializedName("phoneNumber") val phoneNumber : String,
     @SerializedName("email") val email : String
 )

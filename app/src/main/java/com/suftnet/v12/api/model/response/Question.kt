@@ -6,11 +6,11 @@ data class Question (
 
     @SerializedName("firstName") val firstName : String,
     @SerializedName("lastName") val lastName : String,
-    @SerializedName("phoneNumber") val phoneNumber : Int,
+    @SerializedName("phoneNumber") val phoneNumber : String,
     @SerializedName("email") val email : String,
     @SerializedName("description") val description : String,
     @SerializedName("createdDt") val createdDt : String,
     @SerializedName("createdBy") val createdBy : String,
     @SerializedName("answerCount") val answerCount : Int,
-    @SerializedName("id") val id : String
+    @SerializedName("userId") val userId : String
 )

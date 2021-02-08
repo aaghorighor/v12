@@ -57,7 +57,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Produces"
+            android:text="Produce"
             android:layout_gravity="center"
             android:textSize="@dimen/ex_font_size_medium"
             android:textAppearance="@style/FontMedium"

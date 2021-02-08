@@ -35,6 +35,7 @@ class DriverDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  
     {
         action_home.setOnClickListener(this)
         action_job.setOnClickListener(this)
+        action_messages.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -44,8 +45,13 @@ class DriverDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  
                         DriverHomeFragment.newInstance(store.user!!.id)).commit()
             }
             R.id.action_job -> {
-                val intent = Intent(this, PendingJobsActivity::class.java)
-                startActivity(intent)
+                val i = Intent(this, PendingJobsActivity::class.java)
+                startActivity(i)
+            }
+            R.id.action_messages -> {
+                val i = Intent(this, QuestionActivity::class.java)
+                i.putExtra("from", "2")
+                startActivity(i)
             }
         }
     }

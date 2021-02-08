@@ -114,7 +114,6 @@ class SellerOrderDetailActivity : BaseAppCompatActivity()  {
         price.text = "₦ ${CurrencyFormatter.format(order.amountPaid.toDouble(), 2)}"
         availableDate.text = order.availableDate
 
-        order_date.text = order.createdAt
         drop_off.text = order.deliveryAddress
         pick_up.text = order.collectionAddress
         order_status.text = order.status

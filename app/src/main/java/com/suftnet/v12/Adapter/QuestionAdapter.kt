@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.ProgressBar
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,7 +46,8 @@ class QuestionAdapter(private val context : Context,
         val user  = itemView.findViewById<View>(R.id.user)  as TextView
         val date  = itemView.findViewById<View>(R.id.date)  as TextView
         val description  = itemView.findViewById<View>(R.id.description)  as TextView
-        val linearLayout  = itemView.findViewById<View>(R.id.linear_layout)  as LinearLayout
+        val smsLayout  = itemView.findViewById<View>(R.id.sms_layout)  as RelativeLayout
+        val phoneLayout  = itemView.findViewById<View>(R.id.phone_layout)  as RelativeLayout
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -75,8 +77,12 @@ class QuestionAdapter(private val context : Context,
             holder.date.text = question.createdDt
             holder.description.text = question.description
 
-            holder.linearLayout.setOnClickListener {
-                onItemClickListener?.onView(question, position)
+            holder.smsLayout.setOnClickListener {
+                onItemClickListener?.onSms(question, position)
+            }
+
+            holder.phoneLayout.setOnClickListener {
+                onItemClickListener?.onPhone(question, position)
             }
 
         }else {
@@ -102,6 +108,12 @@ class QuestionAdapter(private val context : Context,
         val itemCount = items.size
         questions.addAll(items)
         notifyItemRangeInserted(positionStart, itemCount)
+    }
+
+    fun add(question: Question)
+    {
+        this.questions.add(0,question);
+        notifyItemInserted(0);
     }
 
     fun remove(item: Question, position : Int)
@@ -148,7 +160,8 @@ class QuestionAdapter(private val context : Context,
         }
     }
     interface OnItemClickListener {
-        fun onView(question: Question, position: Int)
+        fun onPhone(question: Question, position: Int)
+        fun onSms(question: Question, position: Int)
     }
 
     interface OnLoadMoreListener {

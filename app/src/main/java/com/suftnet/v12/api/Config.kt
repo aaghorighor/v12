@@ -32,7 +32,8 @@ object Config {
             const val fetch ="${HOST}driver/fetch"
             const val fetchByOrder ="${HOST}driver/fetchByOrderId"
             const val createDelivery ="${HOST}driver/createDelivery"
-            const val jobs ="${HOST}driver/jobs"
+            const val pendingJobs ="${HOST}driver/pendingJobs"
+            const val completedJobs ="${HOST}driver/completedjobs"
         }
         object Market{
             const val fetch ="${HOST}market/fetch"

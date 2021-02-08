@@ -51,8 +51,10 @@ interface Driver {
     suspend fun createDelivery(@Body body: CreateDelivery) : Response<Boolean>
     @GET(Config.Url.Driver.fetchByOrder)
     suspend fun fetchByOrder(@Query("id") id: String) : Response<com.suftnet.v12.api.model.response.Driver>
-    @GET(Config.Url.Driver.jobs)
-    suspend fun jobs() : Response<List<com.suftnet.v12.api.model.response.Order>>
+    @GET(Config.Url.Driver.pendingJobs)
+    suspend fun pendingJobs() : Response<List<com.suftnet.v12.api.model.response.Order>>
+    @GET(Config.Url.Driver.completedJobs)
+    suspend fun completedJobs() : Response<List<com.suftnet.v12.api.model.response.Order>>
 }
 
 interface Market {

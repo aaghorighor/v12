@@ -509,4 +509,37 @@
         <item name="chipEndPadding">@dimen/ex_spacing_standard</item>
     </style>
 
+    <style name="SocialOptionLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginStart">@dimen/ex_spacing_middle</item>
+        <item name="android:layout_marginEnd">@dimen/ex_spacing_standard</item>
+    </style>
+
+    <style name="SocialTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/social_textColorPrimary</item>
+        <item name="android:textSize">@dimen/ex_font_size_medium</item>
+        <item name="fontPath">@string/font_medium</item>
+    </style>
+
+    <style name="SocialSubTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/social_textColorSecondary</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="SocialRecycleView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:overScrollMode">never</item>
+    </style>
+
 </resources>

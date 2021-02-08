@@ -68,10 +68,20 @@ class DriverViewModel(application: Application) : AndroidViewModel(application) 
         loading.value = false
     }
 
-    fun jobs() =  liveData{
+    fun pendingJobs() =  liveData{
 
         loading.value = true
-        var response = driverRepository.jobs()
+        var response = driverRepository.pendingJobs()
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else error.value = NetWork.errorHandler(response)
+        loading.value = false
+    }
+
+    fun completedJobs() =  liveData{
+
+        loading.value = true
+        var response = driverRepository.completedJobs()
         if (response.isSuccessful) {
             emit(response.body())
         } else error.value = NetWork.errorHandler(response)

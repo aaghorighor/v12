@@ -12,7 +12,7 @@
         android:layout_marginTop="@dimen/spacing_medium_8"
         android:layout_marginRight="@dimen/spacing_medium_8"
         android:layout_marginLeft="@dimen/spacing_medium_8"
-        android:background="@color/white"
+        android:background="@color/grey_3"
         app:cardCornerRadius="5dp"
         app:cardElevation="1dp"
         app:cardUseCompatPadding="false">

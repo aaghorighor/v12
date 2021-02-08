@@ -103,7 +103,7 @@ class CompletedJobsActivity : BaseAppCompatActivity() {
 
     private fun loadPage()
     {
-        viewModel.jobs().observe(this, Observer {
+        viewModel.completedJobs().observe(this, Observer {
                         if(!it.isNullOrEmpty())
             {
                 add(it.toMutableList())
