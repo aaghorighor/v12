@@ -31,4 +31,12 @@ object Http {
     fun order(baseUrl: String) : Order {
         return NetworkServiceProvider.getRetrofit(baseUrl).create(Order::class.java)
     }
+
+    fun question(baseUrl: String) : Question {
+        return NetworkServiceProvider.getRetrofit(baseUrl).create(Question::class.java)
+    }
+
+    fun answer(baseUrl: String) : Answer {
+        return NetworkServiceProvider.getRetrofit(baseUrl).create(Answer::class.java)
+    }
 }

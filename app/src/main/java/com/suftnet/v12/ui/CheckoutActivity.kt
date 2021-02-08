@@ -14,6 +14,7 @@ import com.suftnet.v12.model.Error
 import com.suftnet.v12.util.CurrencyFormatter
 import com.suftnet.v12.util.trimmedText
 import com.suftnet.v12.viewModel.OrderViewModel
+import com.suftnet.v12.viewModel.AnswerViewModel
 import com.suftnet.v12.viewModel.MarketViewModel
 import kotlinx.android.synthetic.main.checkout.*
 

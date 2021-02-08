@@ -27,9 +27,12 @@ object Config {
             const val buyerPendingOrders ="${HOST}buyer/buyerPendingOrders"
             const val buyerCompletedOrders ="${HOST}buyer/buyerCompletedOrders"
         }
-        object Logistic{
+        object Driver{
             const val create ="${HOST}driver/create"
             const val fetch ="${HOST}driver/fetch"
+            const val fetchByOrder ="${HOST}driver/fetchByOrderId"
+            const val createDelivery ="${HOST}driver/createDelivery"
+            const val jobs ="${HOST}driver/jobs"
         }
         object Market{
             const val fetch ="${HOST}market/fetch"
@@ -37,6 +40,15 @@ object Config {
         }
         object Order{
             const val create ="${HOST}order/create"
+            const val updateOrderStatus ="${HOST}order/updateOrderStatus"
+        }
+        object Question{
+            const val create ="${HOST}question/create"
+            const val fetch ="${HOST}question/fetch"
+        }
+        object Answer{
+            const val create ="${HOST}answer/create"
+            const val fetch ="${HOST}answer/fetch"
         }
     }
 }

@@ -28,9 +28,15 @@ class LoginActivity : BaseAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signin_activity)
+
+        init()
+    }
+
+    private fun init()
+    {
+        store = Store(this)
         viewModel = ViewModelProvider(this).get(AccountViewModel::class.java)
         listener()
-        store = Store(this)
     }
 
     private fun listener()
@@ -46,38 +52,33 @@ class LoginActivity : BaseAppCompatActivity() {
             }
         }
 
-        observerError()
-        onErrorChange()
-    }
-
-    private fun observerError()
-    {
         viewModel.loading.observe(this, Observer {
             progressBar.visibility = if(it) View.VISIBLE else View.GONE
         })
 
         viewModel.error.observe(
-            this,
-            Observer {
+                this,
+                Observer {
 
-                alert {
-                    title = "Error"
-                    message = it.messages
-                    isCancelable = false
-                    positiveButton(getString(R.string.Ok)) { dialog ->
-                        dialog.dismiss()
-                    }
-                }.show()
-            }
+                    alert {
+                        title = "Error"
+                        message = it.messages
+                        isCancelable = false
+                        positiveButton(getString(R.string.Ok)) { dialog ->
+                            dialog.dismiss()
+                        }
+                    }.show()
+                }
         )
+
+        onErrorChange()
     }
 
     private fun saveChanges()
     {
         viewModel.login(email.trimmedText,password.trimmedText).observe(this, Observer {
             store.user = it
-            startActivity(Intent(this, SellerDashboardActivity::class.java))
-            finish()
+            redirect(it.userType)
         })
     }
     private fun isValid(): Boolean {
@@ -101,6 +102,25 @@ class LoginActivity : BaseAppCompatActivity() {
         }
 
         return isValid
+    }
+    private fun redirect(userType :String)
+    {
+        when(userType)
+        {
+            "Farmer" -> {
+                startActivity(Intent(this, SellerDashboardActivity::class.java))
+                finish()
+            }
+            "Buyer" -> {
+                startActivity(Intent(this, BuyerDashboardActivity::class.java))
+                finish()
+            }
+            "Logistic" ->{
+                startActivity(Intent(this, DriverDashboardActivity::class.java))
+                finish()
+            }else -> {  println("default")      }
+
+        }
     }
     private fun onErrorChange()
     {

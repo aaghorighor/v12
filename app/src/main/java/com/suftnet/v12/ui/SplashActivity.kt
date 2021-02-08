@@ -39,7 +39,8 @@ class SplashActivity : BaseAppCompatActivity() {
                 finish()
             }
             "Logistic" ->{
-
+                startActivity(Intent(this, DriverDashboardActivity::class.java))
+                finish()
             }else -> {  println("default")      }
 
         }

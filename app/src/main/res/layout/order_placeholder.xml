@@ -19,8 +19,8 @@
             <ImageView
                 android:id="@+id/back_action"
                 android:layout_marginStart="@dimen/ex_spacing_standard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
                 android:padding="@dimen/ex_spacing_standard"

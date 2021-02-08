@@ -77,15 +77,13 @@ class BuyerOrderDetailActivity : BaseAppCompatActivity()  {
         name.text = order.itemName
         quantity.text = "${order.quantity.toString()} (${order.unit})"
         price.text = "₦ ${CurrencyFormatter.format(order.amountPaid.toDouble(), 2)}"
-        availableDate.text = "Available Date :" + order.availableDate
+        availableDate.text = order.availableDate
 
-        order_id.text = "Order Id :" + order.id
-        order_date.text = "Order Date :" + order.createdAt
         drop_off.text = order.deliveryAddress
         pick_up.text = order.collectionAddress
         order_status.text = order.status
 
-        phoneNumber = order.phoneNumber!!
+        phoneNumber = order.phoneNumber
 
         status(order.statusId)
     }

@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.suftnet.v12.api.Config
 import com.suftnet.v12.api.Http
+import com.suftnet.v12.api.model.request.CreateDelivery
 import com.suftnet.v12.api.model.request.CreateUser
 import com.suftnet.v12.model.Error
 import com.suftnet.v12.repository.DriverRepository
@@ -39,6 +40,38 @@ class DriverViewModel(application: Application) : AndroidViewModel(application) 
 
         loading.value = true
         var response = driverRepository.fetch()
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else error.value = NetWork.errorHandler(response)
+        loading.value = false
+    }
+
+    fun createDelivery(createDelivery: CreateDelivery) = liveData {
+
+        loading.value = true
+        var response = driverRepository.createDelivery(createDelivery)
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else {
+            error.value = NetWork.errorHandler(response)
+        }
+        loading.value = false
+    }
+
+    fun fetchByOrder(id :String) =  liveData{
+
+        loading.value = true
+        var response = driverRepository.fetchByOrder(id)
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else error.value = NetWork.errorHandler(response)
+        loading.value = false
+    }
+
+    fun jobs() =  liveData{
+
+        loading.value = true
+        var response = driverRepository.jobs()
         if (response.isSuccessful) {
             emit(response.body())
         } else error.value = NetWork.errorHandler(response)

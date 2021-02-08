@@ -14,23 +14,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.snackbar.Snackbar
-import com.suftnet.v12.Adapter.MarketAdapter
+import com.suftnet.v12.Adapter.JobAdapter
 import com.suftnet.v12.R
-import com.suftnet.v12.api.model.response.Produce
+import com.suftnet.v12.api.model.response.Order
 import com.suftnet.v12.model.Error
-import com.suftnet.v12.viewModel.AnswerViewModel
-import com.suftnet.v12.viewModel.MarketViewModel
-import kotlinx.android.synthetic.main.produce_placeholder.*
+import com.suftnet.v12.viewModel.DriverViewModel
+import kotlinx.android.synthetic.main.job_placeholder.*
 import org.jetbrains.anko.alert
 
 @Suppress("DEPRECATION", "DEPRECATED_IDENTITY_EQUALS")
-class MarketActivity : BaseAppCompatActivity() {
+class CompletedJobsActivity : BaseAppCompatActivity() {
     companion object {
-        const val TAG = "MarketActivity"
+        const val TAG = "CompletedJobsActivity"
     }
 
-    private lateinit var viewModel: MarketViewModel
-    private lateinit var marketAdapter : MarketAdapter
+    private lateinit var viewModel: DriverViewModel
+    private lateinit var jobAdapter : JobAdapter
     private lateinit var recyclerView : RecyclerView
     private val context : Context = this
     private var totalCount = 0.0
@@ -39,7 +38,7 @@ class MarketActivity : BaseAppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.market_placeholder)
+        setContentView(R.layout.job_placeholder)
 
         init()
         handler(1)
@@ -47,15 +46,15 @@ class MarketActivity : BaseAppCompatActivity() {
 
     private fun init()
     {
-        setToolBar("Open Market")
-        viewModel = ViewModelProvider(this).get(MarketViewModel::class.java)
+        setToolBar("Jobs")
+        viewModel = ViewModelProvider(this).get(DriverViewModel::class.java)
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.layoutManager = LinearLayoutManager(context);
         recyclerView.setHasFixedSize(true);
 
-        marketAdapter = MarketAdapter(context,recyclerView, ArrayList<Produce>())
-        recyclerView.adapter = marketAdapter
+        jobAdapter = JobAdapter(context,recyclerView, ArrayList<Order>())
+        recyclerView.adapter = jobAdapter
 
         listener()
     }
@@ -68,7 +67,7 @@ class MarketActivity : BaseAppCompatActivity() {
     private fun listener()
     {
         back_action.setOnClickListener {
-            var i = Intent(this@MarketActivity, BuyerDashboardActivity::class.java)
+            var i = Intent(this@CompletedJobsActivity, DriverDashboardActivity::class.java)
             i.flags = FLAG_ACTIVITY_NEW_TASK
             i.flags = FLAG_ACTIVITY_CLEAR_TOP
             i.flags = FLAG_ACTIVITY_CLEAR_TASK
@@ -77,23 +76,24 @@ class MarketActivity : BaseAppCompatActivity() {
 
         swipe_refresh.setOnRefreshListener(OnRefreshListener {
             swipe_refresh.isRefreshing = false
-            marketAdapter.reset()
+            jobAdapter.reset()
             handler(1)
         })
 
-        marketAdapter.setOnItemClickListener(object:MarketAdapter.OnItemClickListener {
-            override fun onView(produce: Produce, position: Int) {
-                var i = Intent(this@MarketActivity, ItemDetailActivity::class.java)
-                i.putExtra("id", produce.id)
+        jobAdapter.setOnItemClickListener(object:JobAdapter.OnItemClickListener {
+            override fun onView(order: Order, position: Int) {
+                var i = Intent(this@CompletedJobsActivity, JobDetailActivity::class.java)
+                i.putExtra("order", order)
+                i.putExtra("from", "1")
                 startActivity(i)
             }
         })
 
         viewModel.loading.observe(this, Observer {
-            progressBar.visibility = if(it) View.VISIBLE else View.GONE
+            progress_Bar.visibility = if(it) View.VISIBLE else View.GONE
         })
 
-        viewModel.listError.observe(
+        viewModel.error.observe(
             this,
             Observer {
                 onError(it)
@@ -103,7 +103,7 @@ class MarketActivity : BaseAppCompatActivity() {
 
     private fun loadPage()
     {
-        viewModel.fetch().observe(this, Observer {
+        viewModel.jobs().observe(this, Observer {
                         if(!it.isNullOrEmpty())
             {
                 add(it.toMutableList())
@@ -113,11 +113,11 @@ class MarketActivity : BaseAppCompatActivity() {
         })
     }
 
-    private fun add(produces: MutableList<Produce>) {
+    private fun add(orders: MutableList<Order>) {
 
         recyclerView.visibility = View.VISIBLE
-        marketAdapter.add(produces)
-        if (produces.size == 0) {
+        jobAdapter.add(orders)
+        if (orders.size == 0) {
             showEmptyLayout(true)
         }
     }
@@ -137,7 +137,7 @@ class MarketActivity : BaseAppCompatActivity() {
         snackBar = Snackbar.make(this.parent_view, message, Snackbar.LENGTH_INDEFINITE)
         snackBar!!.setAction(getString(R.string.PleaseTryAgain), View.OnClickListener {
             handler(1)
-            recyclerView.scrollToPosition(marketAdapter.getItemCount() - 1)
+            recyclerView.scrollToPosition(jobAdapter.getItemCount() - 1)
         })
         snackBar!!.show()
     }
@@ -151,7 +151,7 @@ class MarketActivity : BaseAppCompatActivity() {
         showEmptyLayout(false)
         if (page_no == 1) {
         } else {
-            marketAdapter.setLoading()
+            jobAdapter.setLoading()
         }
         Handler().postDelayed(Runnable { loadPage() }, 10)
     }

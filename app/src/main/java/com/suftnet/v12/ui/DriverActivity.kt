@@ -12,12 +12,14 @@ import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.snackbar.Snackbar
 import com.suftnet.v12.Adapter.DriverAdapter
 import com.suftnet.v12.R
+import com.suftnet.v12.api.model.request.CreateDelivery
 import com.suftnet.v12.api.model.response.Driver
 import com.suftnet.v12.api.model.response.Order
 import com.suftnet.v12.model.Error
@@ -50,7 +52,7 @@ class DriverActivity : BaseAppCompatActivity() {
 
     private fun init()
     {
-        setToolBar("Logistic Operators")
+        setToolBar("Logistic")
         viewModel = ViewModelProvider(this).get(DriverViewModel::class.java)
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -86,15 +88,19 @@ class DriverActivity : BaseAppCompatActivity() {
 
         driverAdapter.setOnItemClickListener(object:DriverAdapter.OnItemClickListener {
             override fun onAdd(driver: Driver, position: Int) {
+                var order = intent.getSerializableExtra("order") as Order
+                var createDelivery = CreateDelivery(driver.id, order.id)
+                viewModel.createDelivery(createDelivery).observe(this@DriverActivity, Observer {
 
-                val intent = Intent()
+                    val intent = Intent()
 
-                intent.putExtra("names", "${driver.firstName} ${driver.lastName}")
-                intent.putExtra("mobile", driver.phoneNumber)
-                intent.putExtra("email", driver.email)
+                    intent.putExtra("names", "${driver.firstName} ${driver.lastName}")
+                    intent.putExtra("mobile", driver.phoneNumber)
+                    intent.putExtra("email", driver.email)
 
-                setResult(Activity.RESULT_OK, intent)
-                finish()
+                    setResult(Activity.RESULT_OK, intent)
+                    finish()
+                })
             }
             override fun onSms(driver: Driver, position: Int) {
                 sms(driver.phoneNumber)

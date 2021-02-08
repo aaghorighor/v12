@@ -18,6 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/ExAppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.CompletedJobsActivity" />
+        <activity android:name=".ui.JobDetailActivity" />
+        <activity android:name=".ui.PendingJobsActivity" />
+        <activity android:name=".ui.DriverDashboardActivity" />
         <activity android:name=".ui.SellerCompletedOrderActivity" />
         <activity android:name=".ui.SellerPendingOrderActivity" />
         <activity android:name=".ui.SellerOrderDetailActivity" />

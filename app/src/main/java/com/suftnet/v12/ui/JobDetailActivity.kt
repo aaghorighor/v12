@@ -1,7 +1,6 @@
 package com.suftnet.v12.ui
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -10,35 +9,33 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.suftnet.v12.R
 import com.suftnet.v12.Store.Store
+import com.suftnet.v12.api.model.request.UpdateOrderStatus
 import com.suftnet.v12.api.model.response.Order
 import com.suftnet.v12.model.Error
 import com.suftnet.v12.util.CurrencyFormatter
 import com.suftnet.v12.util.OrderStatus
 import com.suftnet.v12.util.Util
-import com.suftnet.v12.viewModel.DriverViewModel
-import kotlinx.android.synthetic.main.driver_placeholder.*
-import kotlinx.android.synthetic.main.driver_placeholder.back_action
-import kotlinx.android.synthetic.main.driver_placeholder.progress_Bar
-import kotlinx.android.synthetic.main.seller_order_detail.*
+import com.suftnet.v12.viewModel.OrderViewModel
+import kotlinx.android.synthetic.main.job_detail.*
+import kotlinx.android.synthetic.main.job_detail.back_action
+import kotlinx.android.synthetic.main.job_detail.progress_Bar
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.textColor
 
-class SellerOrderDetailActivity : BaseAppCompatActivity()  {
-
+class JobDetailActivity : BaseAppCompatActivity()  {
     companion object {
-        private const val ADD_OPERATOR = 100
-        const val TAG = "SellerOrderDetailActivity"
+        const val TAG = "JobDetailActivity"
     }
 
-    private lateinit var viewModel: DriverViewModel
-
+    private lateinit var viewModel: OrderViewModel
     private lateinit var store: Store
     private var phoneNumber : String = ""
+    private var order : Order? = null
 
     @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.seller_order_detail)
+        setContentView(R.layout.job_detail)
 
         init()
     }
@@ -46,25 +43,19 @@ class SellerOrderDetailActivity : BaseAppCompatActivity()  {
     private fun init()
     {
         store = Store(this)
-        viewModel = ViewModelProvider(this).get(DriverViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(OrderViewModel::class.java)
+
         extra()
         listener()
     }
 
     private fun listener()
     {
-        add_action.setOnClickListener {
-            var i = Intent(this@SellerOrderDetailActivity, DriverActivity::class.java)
-            i.putExtra("order",  intent.getSerializableExtra("order"))
-            i.putExtra("from",  intent.getStringExtra("from"))
-            startActivityForResult(i,ADD_OPERATOR)
-        }
-
         back_action.setOnClickListener {
             when(intent.getStringExtra("from"))
             {
                 "0" -> {
-                    var i = Intent(this@SellerOrderDetailActivity, SellerPendingOrderActivity::class.java)
+                    var i = Intent(this@JobDetailActivity, PendingJobsActivity::class.java)
                     i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -72,7 +63,7 @@ class SellerOrderDetailActivity : BaseAppCompatActivity()  {
                 }
 
                 "1" -> {
-                    var i = Intent(this@SellerOrderDetailActivity, SellerCompletedOrderActivity::class.java)
+                    var i = Intent(this@JobDetailActivity, CompletedJobsActivity::class.java)
                     i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -89,55 +80,47 @@ class SellerOrderDetailActivity : BaseAppCompatActivity()  {
             sms(phoneNumber)
         }
 
+        order_status.setOnClickListener {
+            var updateOrderStatus = UpdateOrderStatus(order!!.id,order!!.statusId)
+            viewModel.updateOrderStatus(updateOrderStatus).observe(this@JobDetailActivity, Observer {
+                updateStatus(order!!.statusId)
+            })
+        }
+
         viewModel.loading.observe(this, Observer {
             progress_Bar.visibility = if(it) View.VISIBLE else View.GONE
         })
 
         viewModel.error.observe(
-                this,
-                Observer {
-                    onError(it)
-                }
+            this,
+            Observer {
+                onError(it)
+            }
         )
     }
 
     private fun extra()
     {
-        val order = intent.getSerializableExtra("order") as Order
+        order = intent.getSerializableExtra("order") as Order
         onMap(order)
     }
 
-    private fun onMap(order: Order)
+    private fun onMap(order: Order?)
     {
-        name.text = order.itemName
-        quantity.text = "${order.quantity.toString()} (${order.unit})"
-        price.text = "₦ ${CurrencyFormatter.format(order.amountPaid.toDouble(), 2)}"
-        availableDate.text = order.availableDate
+        if(order != null)
+        {
+            name.text = order.itemName
+            quantity.text = "${order.quantity.toString()} (${order.unit})"
+            price.text = "₦ ${CurrencyFormatter.format(order.amountPaid.toDouble(), 2)}"
+            availableDate.text = order.availableDate
+            drop_off.text = order.deliveryAddress
+            pick_up.text = order.collectionAddress
+            order_status.text = order.status
 
-        order_date.text = order.createdAt
-        drop_off.text = order.deliveryAddress
-        pick_up.text = order.collectionAddress
-        order_status.text = order.status
+            phoneNumber = order.phoneNumber
 
-        phoneNumber = order.phoneNumber
-        status(order.statusId)
-        loadDriver(order.id)
-    }
-    private fun loadDriver(orderId :String)
-    {
-        viewModel.fetchByOrder(orderId).observe(
-                this,
-                Observer {
-
-                    if(it != null) if(it.firstName != null) {
-                        names.text = "${it.firstName} ${it.lastName} "
-                        mobile.text = it.phoneNumber
-                        email.text = it.email
-
-                        add_action.text ="Change"
-                    }
-                }
-        )
+            status(order.statusId)
+        }
     }
 
     private fun phone(phoneNumber: String) {
@@ -188,19 +171,26 @@ class SellerOrderDetailActivity : BaseAppCompatActivity()  {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+    private fun updateStatus(statusId : String)
+    {
+        when(statusId)
+        {
+            OrderStatus.processing.toLowerCase() ->{
+                @Suppress("DEPRECATION")
+                order_status.background = resources.getDrawable(R.drawable.btn_rounded_green_300)
+                order_status.text = "Delivery"
+            }
 
-        if (requestCode == ADD_OPERATOR && resultCode == Activity.RESULT_OK) {
-
-            if(data != null)
-            {
-                names.text = data.extras!!["names"] as String
-                mobile.text = data.extras!!["mobile"] as String
-                email.text = data.extras!!["email"] as String
+            OrderStatus.delivery.toLowerCase() ->{
+                @Suppress("DEPRECATION")
+                order_status.background = resources.getDrawable(R.drawable.btn_rounded_tag)
+                @Suppress("DEPRECATION")
+                order_status.textColor = resources.getColor(R.color.grey_90)
+                order_status.text = "Completed"
             }
         }
     }
+
 
     private fun onError(it : Error)
     {
