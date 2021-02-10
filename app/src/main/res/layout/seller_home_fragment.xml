@@ -18,7 +18,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:padding="@dimen/ex_spacing_standard"
-            android:src="@drawable/ic_person"
+            android:src="@drawable/ic_shopping_basket"
             android:tint="@color/grey_80" />
 
         <TextView
@@ -27,10 +27,10 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@id/user_image"
-            android:text=""
+            android:text="Farmer"
             android:padding="@dimen/ex_spacing_standard"
             android:textAppearance="@style/FontMedium"
-            android:textColor="@color/grey_60"
+            android:textColor="@color/grey_20"
             android:textSize="@dimen/ex_font_size_normal" />
 
         <ImageView

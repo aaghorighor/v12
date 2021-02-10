@@ -20,12 +20,16 @@ object Config {
             const val fetch ="${HOST}seller/fetch"
             const val sellerPendingOrders ="${HOST}seller/sellerPendingOrders"
             const val sellerCompletedOrders ="${HOST}seller/sellerCompletedOrders"
+            const val edit ="${HOST}seller/edit"
+            const val fetchByUser ="${HOST}seller/fetchByUser"
         }
         object Buyer{
             const val create ="${HOST}buyer/create"
             const val fetch ="${HOST}buyer/fetch"
             const val buyerPendingOrders ="${HOST}buyer/buyerPendingOrders"
             const val buyerCompletedOrders ="${HOST}buyer/buyerCompletedOrders"
+            const val edit ="${HOST}buyer/edit"
+            const val fetchByUser ="${HOST}buyer/fetchByUser"
         }
         object Driver{
             const val create ="${HOST}driver/create"
@@ -33,7 +37,9 @@ object Config {
             const val fetchByOrder ="${HOST}driver/fetchByOrderId"
             const val createDelivery ="${HOST}driver/createDelivery"
             const val pendingJobs ="${HOST}driver/pendingJobs"
-            const val completedJobs ="${HOST}driver/completedjobs"
+            const val completedJobs ="${HOST}driver/completedJobs"
+            const val edit ="${HOST}driver/edit"
+            const val fetchByUser ="${HOST}driver/fetchByUser"
         }
         object Market{
             const val fetch ="${HOST}market/fetch"

@@ -10,4 +10,6 @@ class BuyerRepository(private val buyerApi : Buyer) {
     suspend fun create(createUser : CreateUser): Response<User> = buyerApi.create(createUser)
     suspend fun pending(): Response<List<com.suftnet.v12.api.model.response.Order>> = buyerApi.pending()
     suspend fun completed(): Response<List<com.suftnet.v12.api.model.response.Order>> = buyerApi.completed()
+    suspend fun edit(buyer : com.suftnet.v12.api.model.response.Buyer): Response<Boolean> = buyerApi.edit(buyer)
+    suspend fun fetchByUser(id :String): Response<com.suftnet.v12.api.model.response.Buyer> = buyerApi.fetchByUser(id)
 }

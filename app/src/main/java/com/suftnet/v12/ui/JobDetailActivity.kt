@@ -184,7 +184,7 @@ class JobDetailActivity : BaseAppCompatActivity()  {
             OrderStatus.processing.toLowerCase() ->{
                 @Suppress("DEPRECATION")
                 order_status.background = resources.getDrawable(R.drawable.btn_rounded_green_300)
-                order_status.text = "Delivery"
+                order_status.text = "Dispatched"
             }
 
             OrderStatus.delivery.toLowerCase() ->{

@@ -35,6 +35,18 @@ class BuyerViewModel(application: Application) : AndroidViewModel(application) {
         loading.value = false
     }
 
+    fun edit(buyer: com.suftnet.v12.api.model.response.Buyer) = liveData {
+
+        loading.value = true
+        var response = buyerRepository.edit(buyer)
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else {
+            error.value = NetWork.errorHandler(response)
+        }
+        loading.value = false
+    }
+
     fun pending() =  liveData{
 
         loading.value = true
@@ -49,6 +61,16 @@ class BuyerViewModel(application: Application) : AndroidViewModel(application) {
 
         loading.value = true
         var response = buyerRepository.completed()
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else error.value = NetWork.errorHandler(response)
+        loading.value = false
+    }
+
+    fun fetchByUser(id :String) =  liveData{
+
+        loading.value = true
+        var response = buyerRepository.fetchByUser(id)
         if (response.isSuccessful) {
             emit(response.body())
         } else error.value = NetWork.errorHandler(response)

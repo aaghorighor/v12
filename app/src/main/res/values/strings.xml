@@ -50,6 +50,8 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem 
     <string name="order_confirmation">Order Confirmation</string>
     <string name="order_success">Thanks your order was placed Successfully</string>
     <string name="social_lbl_type_a_message">Type a message</string>
+    <string name="save_messages">Your changes were saved successfully</string>
+    <string name="save_confirmation">Confirmation</string>
 
     <string-array name="dp_unit">
         <item>Kilogram</item>

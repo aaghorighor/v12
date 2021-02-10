@@ -36,6 +36,18 @@ class DriverViewModel(application: Application) : AndroidViewModel(application) 
         loading.value = false
     }
 
+    fun edit(driver: com.suftnet.v12.api.model.response.Driver) = liveData {
+
+        loading.value = true
+        var response = driverRepository.edit(driver)
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else {
+            error.value = NetWork.errorHandler(response)
+        }
+        loading.value = false
+    }
+
     fun fetch() =  liveData{
 
         loading.value = true
@@ -82,6 +94,16 @@ class DriverViewModel(application: Application) : AndroidViewModel(application) 
 
         loading.value = true
         var response = driverRepository.completedJobs()
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else error.value = NetWork.errorHandler(response)
+        loading.value = false
+    }
+
+    fun fetchByUser(id :String) =  liveData{
+
+        loading.value = true
+        var response = driverRepository.fetchByUser(id)
         if (response.isSuccessful) {
             emit(response.body())
         } else error.value = NetWork.errorHandler(response)

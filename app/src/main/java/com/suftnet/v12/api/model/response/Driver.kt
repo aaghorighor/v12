@@ -4,14 +4,16 @@ import com.google.gson.annotations.SerializedName
 
 data class Driver (
 
-        @SerializedName("id") val id : String,
-        @SerializedName("firstName") val firstName : String,
-        @SerializedName("lastName") val lastName : String,
-        @SerializedName("phoneNumber") val phoneNumber : String,
-        @SerializedName("createdBy") val createdBy : String,
-        @SerializedName("createdAt") val createdAt : String,
-        @SerializedName("active") val active : Boolean,
-        @SerializedName("email") val email : String,
-        @SerializedName("imageUrl") val imageUrl : String,
-        @SerializedName("description") val description : String
+        @SerializedName("id") var id : String,
+        @SerializedName("firstName") var firstName : String,
+        @SerializedName("lastName") var lastName : String,
+        @SerializedName("phoneNumber") var phoneNumber : String,
+        @SerializedName("createdBy") var createdBy : String,
+        @SerializedName("createdAt") var createdAt : String,
+        @SerializedName("active") var active : Boolean,
+        @SerializedName("email") var email : String,
+        @SerializedName("imageUrl") var imageUrl : String,
+        @SerializedName("description") var description : String,
+        @SerializedName("transportType") var transportType : String,
+        @SerializedName("journeyTime") var journeyTime : String
 )

@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/ExAppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.EditDriverActivity" />
+        <activity android:name=".ui.EditBuyerActivity" />
+        <activity android:name=".ui.EditSellerActivity" />
         <activity android:name=".ui.QuestionActivity" />
         <activity android:name=".ui.CompletedJobsActivity" />
         <activity android:name=".ui.JobDetailActivity" />

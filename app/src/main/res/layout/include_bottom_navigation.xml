@@ -67,6 +67,7 @@
         android:id="@+id/action_messages"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:clickable="true"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
@@ -89,10 +90,11 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/action_settings"
+        android:id="@+id/action_profile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:clickable="true"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -101,13 +103,12 @@
             android:layout_height="30dp"
             android:padding="6dp"
             android:tint="@color/ex_textColorPrimary"
-            app:srcCompat="@drawable/ic_settings" />
+            app:srcCompat="@drawable/ic_person" />
 
         <TextView
-            android:id="@+id/setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ex_lbl_setting"
+            android:text="Profile"
             android:layout_gravity="center"
             android:textSize="@dimen/ex_font_size_medium"
             android:textAppearance="@style/FontMedium"

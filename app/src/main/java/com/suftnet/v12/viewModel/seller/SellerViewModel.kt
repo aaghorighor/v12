@@ -54,4 +54,26 @@ class SellerViewModel(application: Application) : AndroidViewModel(application) 
         } else error.value = NetWork.errorHandler(response)
         loading.value = false
     }
+
+    fun edit(seller: com.suftnet.v12.api.model.response.Seller) = liveData {
+
+        loading.value = true
+        var response = sellerRepository.edit(seller)
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else {
+            error.value = NetWork.errorHandler(response)
+        }
+        loading.value = false
+    }
+
+    fun fetchByUser(id :String) =  liveData{
+
+        loading.value = true
+        var response = sellerRepository.fetchByUser(id)
+        if (response.isSuccessful) {
+            emit(response.body())
+        } else error.value = NetWork.errorHandler(response)
+        loading.value = false
+    }
 }

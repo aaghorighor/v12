@@ -1,6 +1,7 @@
 package com.suftnet.v12.api
 
 import com.suftnet.v12.api.model.request.*
+import com.suftnet.v12.api.model.response.Driver
 import com.suftnet.v12.api.model.response.User
 import retrofit2.http.GET
 import retrofit2.Response
@@ -31,6 +32,10 @@ interface Seller {
     suspend fun pending() : Response<List<com.suftnet.v12.api.model.response.Order>>
     @GET(Config.Url.Seller.sellerCompletedOrders)
     suspend fun completed() : Response<List<com.suftnet.v12.api.model.response.Order>>
+    @POST(Config.Url.Seller.edit)
+    suspend fun edit(@Body body: com.suftnet.v12.api.model.response.Seller) : Response<Boolean>
+    @GET(Config.Url.Seller.fetchByUser)
+    suspend fun fetchByUser(@Query("id") id: String) : Response<com.suftnet.v12.api.model.response.Seller>
 }
 
 interface Buyer {
@@ -40,6 +45,10 @@ interface Buyer {
     suspend fun pending() : Response<List<com.suftnet.v12.api.model.response.Order>>
     @GET(Config.Url.Buyer.buyerCompletedOrders)
     suspend fun completed() : Response<List<com.suftnet.v12.api.model.response.Order>>
+    @POST(Config.Url.Buyer.edit)
+    suspend fun edit(@Body body: com.suftnet.v12.api.model.response.Buyer) : Response<Boolean>
+    @GET(Config.Url.Buyer.fetchByUser)
+    suspend fun fetchByUser(@Query("id") id: String) : Response<com.suftnet.v12.api.model.response.Buyer>
 }
 
 interface Driver {
@@ -55,6 +64,10 @@ interface Driver {
     suspend fun pendingJobs() : Response<List<com.suftnet.v12.api.model.response.Order>>
     @GET(Config.Url.Driver.completedJobs)
     suspend fun completedJobs() : Response<List<com.suftnet.v12.api.model.response.Order>>
+    @POST(Config.Url.Driver.edit)
+    suspend fun edit(@Body body: com.suftnet.v12.api.model.response.Driver) : Response<Boolean>
+    @GET(Config.Url.Driver.fetchByUser)
+    suspend fun fetchByUser(@Query("id") id: String) : Response<com.suftnet.v12.api.model.response.Driver>
 }
 
 interface Market {

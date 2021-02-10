@@ -13,4 +13,6 @@ class DriverRepository(private val driverApi : Driver) {
     suspend fun createDelivery(createDelivery : CreateDelivery): Response<Boolean> = driverApi.createDelivery(createDelivery)
     suspend fun pendingJobs(): Response<List<com.suftnet.v12.api.model.response.Order>> = driverApi.pendingJobs()
     suspend fun completedJobs(): Response<List<com.suftnet.v12.api.model.response.Order>> = driverApi.completedJobs()
+    suspend fun edit(driver : com.suftnet.v12.api.model.response.Driver): Response<Boolean> = driverApi.edit(driver)
+    suspend fun fetchByUser(id :String): Response<com.suftnet.v12.api.model.response.Driver> = driverApi.fetchByUser(id)
 }

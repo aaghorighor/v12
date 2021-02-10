@@ -37,6 +37,7 @@ class BuyerDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  {
         action_home.setOnClickListener(this)
         action_market.setOnClickListener(this)
         action_messages.setOnClickListener(this)
+        action_profile.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -52,6 +53,11 @@ class BuyerDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  {
             R.id.action_messages -> {
                 val i = Intent(this, QuestionActivity::class.java)
                 i.putExtra("from", "1")
+                startActivity(i)
+            }
+            R.id.action_profile -> {
+                val i = Intent(this, EditBuyerActivity::class.java)
+                i.putExtra("id", store.user!!.id)
                 startActivity(i)
             }
         }

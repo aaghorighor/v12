@@ -7,7 +7,11 @@ import android.view.View
 import com.suftnet.v12.R
 import com.suftnet.v12.Store.Store
 import com.suftnet.v12.ui.fragment.DriverHomeFragment
+import kotlinx.android.synthetic.main.include_buyer_bottom_navigation.*
 import kotlinx.android.synthetic.main.include_driver_bottom_navigation.*
+import kotlinx.android.synthetic.main.include_driver_bottom_navigation.action_home
+import kotlinx.android.synthetic.main.include_driver_bottom_navigation.action_messages
+import kotlinx.android.synthetic.main.include_driver_bottom_navigation.action_profile
 
 class DriverDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  {
     private lateinit var store: Store
@@ -36,6 +40,7 @@ class DriverDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  
         action_home.setOnClickListener(this)
         action_job.setOnClickListener(this)
         action_messages.setOnClickListener(this)
+        action_profile.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -51,6 +56,11 @@ class DriverDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  
             R.id.action_messages -> {
                 val i = Intent(this, QuestionActivity::class.java)
                 i.putExtra("from", "2")
+                startActivity(i)
+            }
+            R.id.action_profile -> {
+                val i = Intent(this, EditDriverActivity::class.java)
+                i.putExtra("id", store.user!!.id)
                 startActivity(i)
             }
         }
