@@ -13,6 +13,7 @@ import com.suftnet.v12.R
 import com.suftnet.v12.api.model.response.Produce
 import com.suftnet.v12.util.Constants
 import com.suftnet.v12.util.CurrencyFormatter
+import com.suftnet.v12.util.Util
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
 class MarketAdapter(private val context : Context,

@@ -2,6 +2,7 @@ package com.suftnet.v12.Adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.suftnet.v12.R
 import com.suftnet.v12.api.model.response.Question
 import com.suftnet.v12.util.Constants
+import com.suftnet.v12.util.Util
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
 class QuestionAdapter(private val context : Context,
@@ -74,7 +76,7 @@ class QuestionAdapter(private val context : Context,
 
             val question = questions[position]
             holder.user.text = "${question.firstName} ${question.lastName}"
-            holder.date.text = question.createdDt
+            holder.date.text = question.createdOn
             holder.description.text = question.description
 
             holder.smsLayout.setOnClickListener {

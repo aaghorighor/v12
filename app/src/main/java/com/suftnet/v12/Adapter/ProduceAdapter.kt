@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.suftnet.v12.R
 import com.suftnet.v12.api.model.response.Produce
 import com.suftnet.v12.util.Constants
+import com.suftnet.v12.util.Util
+import com.suftnet.v12.util.trimmedText
+import kotlinx.android.synthetic.main.create_produce.*
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
 class ProduceAdapter(private val context : Context,
@@ -71,7 +74,7 @@ class ProduceAdapter(private val context : Context,
 
             val produce = produces[position]
             holder.name.text = produce.name
-            holder.availableDate.text = produce.availableDate
+            holder.availableDate.text =  produce.availableDate
             holder.description.text = produce.description
 
             holder.deleteLayout.setOnClickListener {

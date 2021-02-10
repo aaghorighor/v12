@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.suftnet.v12.R
 import com.suftnet.v12.api.model.response.Answer
 import com.suftnet.v12.util.Constants
+import com.suftnet.v12.util.Util
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
 class AnswerAdapter(private val context : Context,
@@ -72,7 +73,7 @@ class AnswerAdapter(private val context : Context,
 
             val answer = answers[position]
             holder.user.text = "${answer.firstName} ${answer.lastName}"
-            holder.date.text = answer.createdDt
+            holder.date.text = Util.iso8601Format(answer.createdDt).toString()
             holder.description.text = answer.description
 
             holder.linearLayout.setOnClickListener {

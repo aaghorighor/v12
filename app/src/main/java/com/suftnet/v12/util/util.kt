@@ -18,11 +18,11 @@ object Util {
     fun parse(formattedDate: String): Date? {
         var formattedDate = formattedDate
         return try {
-            SimpleDateFormat("dd/M/yyyy").parse(formattedDate)
+            SimpleDateFormat("yyyy-MM-dd").parse(formattedDate)
         } catch (ex: IllegalArgumentException) {
             // error happen in Java 6: Unknown pattern character 'X'
             formattedDate = if (formattedDate.endsWith("Z")) formattedDate.replace("Z", "+0000") else formattedDate.replace("([+-]\\d\\d):(\\d\\d)\\s*$".toRegex(), "$1$2")
-            val df1: DateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+            val df1: DateFormat = SimpleDateFormat("yyyy-MM-dd")
             df1.parse(formattedDate)
         }
     }
@@ -31,12 +31,12 @@ object Util {
     fun iso8601Format(formattedDate: String): Date? {
         @Suppress("NAME_SHADOWING") var formattedDate = formattedDate
         return try {
-            val df: DateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+            val df: DateFormat = SimpleDateFormat("yyyy-MM-dd")
             df.parse(formattedDate)
         } catch (ex: IllegalArgumentException) {
             // error happen in Java 6: Unknown pattern character 'X'
             formattedDate = if (formattedDate.endsWith("Z")) formattedDate.replace("Z", "+0000") else formattedDate.replace("([+-]\\d\\d):(\\d\\d)\\s*$".toRegex(), "$1$2")
-            val df1: DateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+            val df1: DateFormat = SimpleDateFormat("yyyy-MM-dd")
             df1.parse(formattedDate)
         }
     }

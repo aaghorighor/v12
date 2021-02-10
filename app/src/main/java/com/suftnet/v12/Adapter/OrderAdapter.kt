@@ -18,6 +18,7 @@ import com.suftnet.v12.api.model.response.Produce
 import com.suftnet.v12.util.Constants
 import com.suftnet.v12.util.CurrencyFormatter
 import com.suftnet.v12.util.OrderStatus
+import com.suftnet.v12.util.Util
 import org.jetbrains.anko.textColor
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")

@@ -146,7 +146,9 @@ class SignUpActivity : BaseAppCompatActivity() {
         if (email.trimmedText.isEmpty()) {
             email.error = "Email is required"
             isValid = false
-        }else if(!email.trimmedText.isValidEmail())
+        }
+
+        if(!email.trimmedText.isValidEmail())
         {
             email.error = "Email Address is not valid"
             isValid = false

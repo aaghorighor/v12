@@ -16,6 +16,7 @@ import com.suftnet.v12.api.model.request.CreateProduce
 import com.suftnet.v12.api.model.request.EditProduce
 import com.suftnet.v12.api.model.response.Produce
 import com.suftnet.v12.model.Error
+import com.suftnet.v12.util.Util
 import com.suftnet.v12.util.resetErrorOnChange
 import com.suftnet.v12.util.trimmedText
 import com.suftnet.v12.viewModel.produce.ProduceViewModel
@@ -278,7 +279,7 @@ class CreateProduceActivity : BaseAppCompatActivity() {
         name.setText(produce.name)
         quantity.setText(produce.quantity.toString())
         price.setText(produce.price.toString())
-        availableDate.setText(produce.availableDate)
+        availableDate.setText(produce.availableDate.trim())
         description.setText(produce.description)
 
         city.setText(produce.city)

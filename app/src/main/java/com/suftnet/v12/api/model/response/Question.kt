@@ -12,5 +12,6 @@ data class Question (
     @SerializedName("createdDt") val createdDt : String,
     @SerializedName("createdBy") val createdBy : String,
     @SerializedName("answerCount") val answerCount : Int,
-    @SerializedName("userId") val userId : String
+    @SerializedName("userId") val userId : String,
+    @SerializedName("createdOn") val createdOn : String
 )

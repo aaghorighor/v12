@@ -15,10 +15,16 @@ import com.suftnet.v12.model.Error
 import com.suftnet.v12.util.CurrencyFormatter
 import com.suftnet.v12.util.OrderStatus
 import com.suftnet.v12.util.Util
+import com.suftnet.v12.util.trimmedText
 import com.suftnet.v12.viewModel.OrderViewModel
+import kotlinx.android.synthetic.main.create_produce.*
 import kotlinx.android.synthetic.main.job_detail.*
+import kotlinx.android.synthetic.main.job_detail.availableDate
 import kotlinx.android.synthetic.main.job_detail.back_action
+import kotlinx.android.synthetic.main.job_detail.name
+import kotlinx.android.synthetic.main.job_detail.price
 import kotlinx.android.synthetic.main.job_detail.progress_Bar
+import kotlinx.android.synthetic.main.job_detail.quantity
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.textColor
 
@@ -112,7 +118,7 @@ class JobDetailActivity : BaseAppCompatActivity()  {
             name.text = order.itemName
             quantity.text = "${order.quantity.toString()} (${order.unit})"
             price.text = "₦ ${CurrencyFormatter.format(order.amountPaid.toDouble(), 2)}"
-            availableDate.text = order.availableDate
+            availableDate.text =  order.availableDate
             drop_off.text = order.deliveryAddress
             pick_up.text = order.collectionAddress
             order_status.text = order.status

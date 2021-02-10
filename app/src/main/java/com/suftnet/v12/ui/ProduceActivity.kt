@@ -47,7 +47,7 @@ class ProduceActivity : BaseAppCompatActivity() {
 
     private fun init()
     {
-        setToolBar("Produces")
+        setToolBar("Produce")
         viewModel = ViewModelProvider(this).get(ProduceViewModel::class.java)
 
         recyclerView = findViewById(R.id.recyclerView);
