@@ -38,7 +38,6 @@ class JobDetailActivity : BaseAppCompatActivity()  {
     private var phoneNumber : String = ""
     private var order : Order? = null
 
-    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.job_detail)

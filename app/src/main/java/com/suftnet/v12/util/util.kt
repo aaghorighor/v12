@@ -1,6 +1,13 @@
 package com.suftnet.v12.util
 
+import android.app.Activity
+import android.graphics.Color
+import android.os.Build
 import android.util.Patterns
+import android.view.View
+import android.view.WindowManager
+import androidx.core.content.ContextCompat
+import com.suftnet.v12.R
 import java.text.DateFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -40,5 +47,26 @@ object Util {
             df1.parse(formattedDate)
         }
     }
+
+
+    @Suppress("DEPRECATION")
+    fun Activity.lightStatusBar(statusBarColor: Int = -1) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            when (window.decorView.rootView.systemUiVisibility) {
+                0 -> window.decorView.rootView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR -> {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        window.decorView.rootView.systemUiVisibility =
+                                View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR + View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+                    } else {
+                        window.decorView.rootView.systemUiVisibility =
+                                View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                    }
+                }
+            }
+            window.statusBarColor = if (statusBarColor == -1) Color.WHITE else statusBarColor
+        }
+    }
+
 
 }

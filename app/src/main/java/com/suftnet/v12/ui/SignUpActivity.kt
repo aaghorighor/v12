@@ -1,11 +1,8 @@
 package com.suftnet.v12.ui
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.chip.Chip
@@ -28,10 +25,10 @@ class SignUpActivity : BaseAppCompatActivity() {
     private lateinit var store: Store
     private var userType :String =""
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_activity)
+        fullScreen()
         init()
     }
 

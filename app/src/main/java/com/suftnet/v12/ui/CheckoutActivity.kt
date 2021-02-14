@@ -28,7 +28,6 @@ class CheckoutActivity : BaseAppCompatActivity()  {
     private var produceId : String = ""
     private var amountPaid : Double = 0.0
 
-    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.checkout)

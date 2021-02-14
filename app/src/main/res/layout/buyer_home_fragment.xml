@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_10"
+    android:background="@color/grey_20"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -29,7 +29,7 @@
             android:text="Buyer"
             android:padding="@dimen/ex_spacing_standard"
             android:textAppearance="@style/FontMedium"
-            android:textColor="@color/grey_20"
+            android:textColor="@color/grey_60"
             android:textSize="@dimen/ex_font_size_normal" />
 
         <ImageView

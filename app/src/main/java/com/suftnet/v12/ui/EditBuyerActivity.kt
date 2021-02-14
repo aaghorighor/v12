@@ -21,7 +21,6 @@ class EditBuyerActivity : BaseAppCompatActivity()  {
     private lateinit var viewModel: BuyerViewModel
     private var buyer :com.suftnet.v12.api.model.response.Buyer? = null
 
-    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edit_buyer)

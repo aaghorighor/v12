@@ -1,13 +1,13 @@
 package com.suftnet.v12.ui
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.suftnet.v12.R
 import com.suftnet.v12.Store.Store
 import com.suftnet.v12.ui.fragment.DriverHomeFragment
-import kotlinx.android.synthetic.main.include_buyer_bottom_navigation.*
+import com.suftnet.v12.util.Util
+import com.suftnet.v12.util.Util.lightStatusBar
 import kotlinx.android.synthetic.main.include_driver_bottom_navigation.*
 import kotlinx.android.synthetic.main.include_driver_bottom_navigation.action_home
 import kotlinx.android.synthetic.main.include_driver_bottom_navigation.action_messages
@@ -16,11 +16,11 @@ import kotlinx.android.synthetic.main.include_driver_bottom_navigation.action_pr
 class DriverDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  {
     private lateinit var store: Store
 
-    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.driver_dashboard)
         store = Store(this)
+
         init()
     }
 

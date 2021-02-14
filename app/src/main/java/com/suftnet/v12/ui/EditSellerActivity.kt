@@ -25,7 +25,6 @@ class EditSellerActivity : BaseAppCompatActivity()  {
     private lateinit var viewModel: SellerViewModel
     private var seller :com.suftnet.v12.api.model.response.Seller? = null
 
-    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edit_seller)

@@ -57,6 +57,8 @@ object Config {
             const val create ="${HOST}answer/create"
             const val fetch ="${HOST}answer/fetch"
         }
+
+        const val CRASH :String = "${HOST}mobileLogger/create"
     }
 }
 

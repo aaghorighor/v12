@@ -24,7 +24,6 @@ class ItemDetailActivity : BaseAppCompatActivity()  {
     private lateinit var viewModel: MarketViewModel
     private var phoneNumber : String = ""
 
-    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.item_detail)

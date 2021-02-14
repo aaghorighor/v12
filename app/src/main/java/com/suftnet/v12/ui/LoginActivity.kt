@@ -1,5 +1,6 @@
 package com.suftnet.v12.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -24,11 +25,11 @@ class LoginActivity : BaseAppCompatActivity() {
 
     private lateinit var viewModel: AccountViewModel
     private lateinit var store: Store
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signin_activity)
-
+        fullScreen()
         init()
     }
 

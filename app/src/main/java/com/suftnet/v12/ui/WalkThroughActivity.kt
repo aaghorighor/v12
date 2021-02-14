@@ -26,7 +26,6 @@ class WalkThroughActivity : BaseAppCompatActivity() {
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is simply text  "
     )
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.walk_through_activity)

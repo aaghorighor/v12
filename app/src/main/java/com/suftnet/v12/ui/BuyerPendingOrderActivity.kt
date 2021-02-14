@@ -6,6 +6,7 @@ import android.content.Intent.*
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
@@ -22,7 +23,6 @@ import com.suftnet.v12.viewModel.BuyerViewModel
 import kotlinx.android.synthetic.main.order_placeholder.*
 import org.jetbrains.anko.alert
 
-@Suppress("DEPRECATION", "DEPRECATED_IDENTITY_EQUALS")
 class BuyerPendingOrderActivity : BaseAppCompatActivity() {
     companion object {
         const val TAG = "BuyerPendingOrderActivity"
@@ -35,7 +35,6 @@ class BuyerPendingOrderActivity : BaseAppCompatActivity() {
     private var totalCount = 0.0
     private var snackBar: Snackbar? = null
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.order_placeholder)
@@ -153,7 +152,9 @@ class BuyerPendingOrderActivity : BaseAppCompatActivity() {
         } else {
             orderAdapter.setLoading()
         }
-        Handler().postDelayed(Runnable { loadPage() }, 10)
+        Handler(Looper.getMainLooper()).postDelayed({
+            loadPage()
+        }, 10)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

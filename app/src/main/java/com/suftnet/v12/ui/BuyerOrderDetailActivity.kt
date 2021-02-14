@@ -17,7 +17,6 @@ class BuyerOrderDetailActivity : BaseAppCompatActivity()  {
     private lateinit var store: Store
     private var phoneNumber : String = ""
 
-    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.order_detail)

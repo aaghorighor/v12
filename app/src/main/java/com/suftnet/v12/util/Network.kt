@@ -5,9 +5,12 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.util.Log
+import android.util.MalformedJsonException
 import androidx.annotation.RequiresApi
 import retrofit2.Response
 import com.google.gson.JsonParser
+import org.acra.ACRA
+import java.io.IOException
 
 object NetWork {
 
@@ -36,33 +39,43 @@ object NetWork {
     @Suppress("DEPRECATION")
     fun errorHandler(response: Response<*>): com.suftnet.v12.model.Error {
 
-        val error = response.errorBody()?.string()
-        var message = ""
+        try{
+            val error = response.errorBody()?.string()
+            var message = when(response.code())
+            {
+                400 -> {
+                    JsonParser().parse(error)
+                            .asJsonObject["message"]
+                            .toString()
+                }
+                401 -> {
+                    JsonParser().parse(error)
+                            .asJsonObject["message"]
+                            .toString()
+                }
+                500 -> {
 
-        message = when(response.code())
+                    JsonParser().parse(error)
+                            .asJsonObject["Message"]
+                            .toString()
+                }
+                else -> {
+                    "Unknown Error ${response.code()}"
+                }
+            }
+
+            var exception = IOException(error)
+            ACRA.getErrorReporter().handleSilentException(exception)
+
+            return com.suftnet.v12.model.Error(message, 1)
+        }catch(ex : MalformedJsonException)
         {
-            400 -> {
-                JsonParser().parse(error)
-                        .asJsonObject["message"]
-                        .toString()
-            }
-            401 -> {
-                JsonParser().parse(error)
-                        .asJsonObject["message"]
-                        .toString()
-            }
-            500 -> {
-
-                JsonParser().parse(error)
-                        .asJsonObject["Message"]
-                        .toString()
-            }
-            else -> {
-                "Unknown Error ${response.code()}"
-            }
+            ACRA.getErrorReporter().handleSilentException(ex)
+        }catch (ex:Exception)
+        {
+            ACRA.getErrorReporter().handleSilentException(ex)
         }
-
-        return com.suftnet.v12.model.Error(message, response.code())
+        return com.suftnet.v12.model.Error("Unknown Error", 1)
     }
 
 }

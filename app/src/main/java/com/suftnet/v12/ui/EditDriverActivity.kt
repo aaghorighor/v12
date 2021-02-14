@@ -23,7 +23,6 @@ class EditDriverActivity : BaseAppCompatActivity()  {
     private lateinit var viewModel: DriverViewModel
     private var driver :com.suftnet.v12.api.model.response.Driver? = null
 
-    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edit_driver)

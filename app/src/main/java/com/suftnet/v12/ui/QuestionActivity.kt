@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
@@ -31,7 +32,6 @@ import kotlinx.android.synthetic.main.description_dialog.*
 import kotlinx.android.synthetic.main.question_placeholder.*
 import org.jetbrains.anko.alert
 
-@Suppress("DEPRECATION", "DEPRECATED_IDENTITY_EQUALS")
 class QuestionActivity : BaseAppCompatActivity() {
     companion object {
         const val TAG = "QuestionActivity"
@@ -44,7 +44,6 @@ class QuestionActivity : BaseAppCompatActivity() {
     private var totalCount = 0.0
     private var snackBar: Snackbar? = null
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.question_placeholder)
@@ -242,7 +241,11 @@ class QuestionActivity : BaseAppCompatActivity() {
         } else {
             questionAdapter.setLoading()
         }
-        Handler().postDelayed(Runnable { loadPage() }, 10)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            loadPage()
+        }, 10)
+
     }
 
     private fun onSave(description : String){

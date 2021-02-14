@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.include_bottom_navigation.*
 class SellerDashboardActivity : BaseAppCompatActivity() , View.OnClickListener  {
     private lateinit var store: Store
 
-    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.seller_dashboard)

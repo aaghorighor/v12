@@ -6,6 +6,7 @@ import android.content.Intent.*
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
@@ -23,7 +24,6 @@ import com.suftnet.v12.viewModel.produce.ProduceViewModel
 import kotlinx.android.synthetic.main.produce_placeholder.*
 import org.jetbrains.anko.alert
 
-@Suppress("DEPRECATION", "DEPRECATED_IDENTITY_EQUALS")
 class ProduceActivity : BaseAppCompatActivity() {
     companion object {
         const val TAG = "ProduceActivity"
@@ -36,7 +36,6 @@ class ProduceActivity : BaseAppCompatActivity() {
     private var totalCount = 0.0
     private var snackBar: Snackbar? = null
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.produce_placeholder)
@@ -168,7 +167,10 @@ class ProduceActivity : BaseAppCompatActivity() {
         } else {
             produceAdapter.setLoading()
         }
-        Handler().postDelayed(Runnable { loadPage() }, 10)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            loadPage()
+        }, 10)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -34,7 +34,6 @@ class CreateProduceActivity : BaseAppCompatActivity() {
     private var unitId :String =""
     private lateinit var viewModel: ProduceViewModel
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_produce)
