@@ -12,7 +12,6 @@ data  class Produce (
     @SerializedName("quantity") val quantity : Int,
     @SerializedName("price") val price : Double,
     @SerializedName("active") val active : Boolean,
-    @SerializedName("unitId") val unitId : String,
     @SerializedName("unit") val unit : String?,
     @SerializedName("availableDate") val availableDate : String,
     @SerializedName("createdBy") val createdBy : String,

@@ -31,7 +31,7 @@ class CreateProduceActivity : BaseAppCompatActivity() {
     }
     private var from :String =""
     private var id :String =""
-    private var unitId :String =""
+
     private lateinit var viewModel: ProduceViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +66,7 @@ class CreateProduceActivity : BaseAppCompatActivity() {
                                 quantity.trimmedText.toInt(),
                                 price.trimmedText.toDouble(),
                                 publish.isChecked,
-                                "115924fb-79f9-4e0c-ab5f-d4e1dfc1c893",
+                                unit.trimmedText,
                                 availableDate.trimmedText,
                                 city.trimmedText,
                                 state.trimmedText,
@@ -83,7 +83,7 @@ class CreateProduceActivity : BaseAppCompatActivity() {
                                 quantity.trimmedText.toInt(),
                                 price.trimmedText.toDouble(),
                                 publish.isChecked,
-                                "115924fb-79f9-4e0c-ab5f-d4e1dfc1c893",
+                                unit.trimmedText,
                                 availableDate.trimmedText,
                                 city.trimmedText,
                                 state.trimmedText,
@@ -154,6 +154,11 @@ class CreateProduceActivity : BaseAppCompatActivity() {
             isValid = false
         }
 
+        if (unit.trimmedText.isEmpty()) {
+            unit.error = "Unit is required"
+            isValid = false
+        }
+
         if (address.trimmedText.isEmpty()) {
             address.error = "Address is required"
             isValid = false
@@ -182,6 +187,7 @@ class CreateProduceActivity : BaseAppCompatActivity() {
         quantity.resetErrorOnChange(quantity)
         price.resetErrorOnChange(price)
         availableDate.resetErrorOnChange(availableDate)
+        unit.resetErrorOnChange(unit)
     }
     private fun onShowDateDialogPicker() {
         val calendar =  Calendar.getInstance()
@@ -285,8 +291,8 @@ class CreateProduceActivity : BaseAppCompatActivity() {
         state.setText(produce.state)
         address.setText(produce.address)
         country.setText(produce.country)
+        unit.setText(produce.unit)
 
-        unitId = produce.unitId
         publish.isChecked = produce.active
     }
 }
