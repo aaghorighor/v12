@@ -41,7 +41,6 @@ class BuyerOrderDetailActivity : BaseAppCompatActivity()  {
                     var i = Intent(this@BuyerOrderDetailActivity, BuyerPendingOrderActivity::class.java)
                     i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                    i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(i)
                 }
 
@@ -49,7 +48,6 @@ class BuyerOrderDetailActivity : BaseAppCompatActivity()  {
                     var i = Intent(this@BuyerOrderDetailActivity, BuyerCompletedOrderActivity::class.java)
                     i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                    i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(i)
                 }
             }

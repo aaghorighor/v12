@@ -45,7 +45,6 @@ class EditDriverActivity : BaseAppCompatActivity()  {
             var i = Intent(this@EditDriverActivity, DriverDashboardActivity::class.java)
             i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(i)
         }
 

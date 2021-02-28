@@ -100,17 +100,15 @@ class CreateProduceActivity : BaseAppCompatActivity() {
 
         back__action.setOnClickListener {
             var i = Intent(this@CreateProduceActivity, ProduceActivity::class.java)
-            i.flags = FLAG_ACTIVITY_NEW_TASK
-            i.flags = FLAG_ACTIVITY_CLEAR_TOP
-            i.flags = FLAG_ACTIVITY_CLEAR_TASK
+            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(i)
         }
 
         cancel.setOnClickListener {
             var i = Intent(this@CreateProduceActivity, ProduceActivity::class.java)
-            i.flags = FLAG_ACTIVITY_NEW_TASK
-            i.flags = FLAG_ACTIVITY_CLEAR_TOP
-            i.flags = FLAG_ACTIVITY_CLEAR_TASK
+            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(i)
         }
         availableDate.setOnClickListener {

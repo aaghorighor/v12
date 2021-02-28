@@ -53,7 +53,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
-                            android:text="Available Date :"
+                            android:text="Available By :"
                             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                             android:textColor="@color/grey_60"
                             android:textStyle="bold" />
@@ -85,16 +85,29 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/description"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:fontFamily="@font/crimson_text_regular"
-                android:text="Your news feed helps you keep up with recent activity on repositories you watch and people on repositories you watch and people you follow."
-                android:textColor="@color/grey_80"
-                android:textSize="@dimen/spacing_large"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/spacing_large"
+                    android:layout_height="@dimen/spacing_large"
+                    android:src="@drawable/ic_location"
+                    android:tint="@color/grey_80" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/crimson_text_regular"
+                    android:text=""
+                    android:textColor="@color/grey_80"
+                    android:textSize="@dimen/spacing_large"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

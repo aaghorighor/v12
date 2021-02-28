@@ -63,7 +63,6 @@ class JobDetailActivity : BaseAppCompatActivity()  {
                     var i = Intent(this@JobDetailActivity, PendingJobsActivity::class.java)
                     i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                    i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(i)
                 }
 
@@ -71,7 +70,6 @@ class JobDetailActivity : BaseAppCompatActivity()  {
                     var i = Intent(this@JobDetailActivity, CompletedJobsActivity::class.java)
                     i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                    i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(i)
                 }
             }

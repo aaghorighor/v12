@@ -45,7 +45,7 @@ class MarketAdapter(private val context : Context,
 
         val name  = itemView.findViewById<View>(R.id.name)  as TextView
         val availableDate  = itemView.findViewById<View>(R.id.availableDate)  as TextView
-        val description  = itemView.findViewById<View>(R.id.description)  as TextView
+        val address  = itemView.findViewById<View>(R.id.address)  as TextView
         val price  = itemView.findViewById<View>(R.id.price)  as TextView
         val linearLayout  = itemView.findViewById<View>(R.id.linear_layout)  as LinearLayout
     }
@@ -74,8 +74,14 @@ class MarketAdapter(private val context : Context,
             val produce = produces[position]
             holder.name.text = produce.name
             holder.availableDate.text = produce.availableDate
-            holder.description.text = produce.description
+
             holder.price.text = "₦" + CurrencyFormatter.format(produce.price, 2)
+
+            var completedAddress = "${produce.address}"
+            if(produce.city!!.isNotEmpty()) completedAddress += ", ${produce.city}"
+            if(produce.state!!.isNotEmpty()) completedAddress += ", ${produce.state!!}"
+            if(produce.country!!.isNotEmpty()) completedAddress += ", ${produce.country}"
+            holder.address.text = completedAddress
 
             holder.linearLayout.setOnClickListener {
                 onItemClickListener?.onView(produce, position)

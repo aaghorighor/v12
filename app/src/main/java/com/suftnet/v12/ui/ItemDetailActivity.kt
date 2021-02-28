@@ -46,7 +46,6 @@ class ItemDetailActivity : BaseAppCompatActivity()  {
             var i = Intent(this@ItemDetailActivity, MarketActivity::class.java)
             i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(i)
         }
 
@@ -109,6 +108,12 @@ class ItemDetailActivity : BaseAppCompatActivity()  {
         availableDate.text = produce.availableDate
         description.text = produce.description
         phoneNumber = produce.phoneNumber!!
+
+        var completedAddress = "${produce.address}"
+        if(produce.city!!.isNotEmpty()) completedAddress += ", ${produce.city}"
+        if(produce.state!!.isNotEmpty()) completedAddress += ", ${produce.state!!}"
+        if(produce.country!!.isNotEmpty()) completedAddress += ", ${produce.country}"
+        address.text = completedAddress
     }
 
     private fun onError(it : Error)

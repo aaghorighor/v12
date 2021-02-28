@@ -4,13 +4,13 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.suftnet.v12",
+  "applicationId": "com.suftnet.m25",
   "variantName": "processReleaseResources",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 3,
+      "versionCode": 1,
       "versionName": "1.0",
       "outputFile": "app-release.apk"
     }

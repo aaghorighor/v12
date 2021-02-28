@@ -68,9 +68,8 @@ class ProduceActivity : BaseAppCompatActivity() {
     {
         back_action.setOnClickListener {
             var i = Intent(this@ProduceActivity, SellerDashboardActivity::class.java)
-            i.flags = FLAG_ACTIVITY_NEW_TASK
-            i.flags = FLAG_ACTIVITY_CLEAR_TOP
-            i.flags = FLAG_ACTIVITY_CLEAR_TASK
+            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(i)
         }
 
